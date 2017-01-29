@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Register;
 import model.Login;
 /**
  *
@@ -24,14 +25,15 @@ public class LoginDataAccess {
 
     
     
-    public void addNew(Login n){
+    public void addNew(Register n){
         try {
-            CallableStatement ps = DBUtils.prepareCall("EXEC dbo.uspAddUser ?,?,?,?");
+            CallableStatement ps = DBUtils.prepareCall("EXEC dbo.uspAddUser ?,?,?,?,?");
             
             ps.setString(1, n.getLoginName());
             ps.setString(2, n.getPassword());
             ps.setString(3, n.getFirstName());
             ps.setString(4, n.getLastName());
+            ps.setString(5, n.getEmail());
             ps.executeQuery();
             
             
@@ -40,4 +42,19 @@ public class LoginDataAccess {
         }
     }
     
+    public void loguear(Login n){
+        String Mensaje = null;
+        try {
+            CallableStatement ps = DBUtils.prepareCall("EXEC dbo.uspLogin ?,?,?");
+            
+            ps.setString(1, n.getLoginName());
+            ps.setString(2, n.getPassword());
+            ps.registerOutParameter(3, java.sql.Types.VARCHAR);
+            ps.executeQuery();
+            Mensaje=ps.getString(3);
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(LoginDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

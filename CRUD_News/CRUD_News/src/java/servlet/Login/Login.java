@@ -6,7 +6,6 @@
 package servlet.Login;
 
 import dao.LoginDataAccess;
-import dao.TransaccionDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -23,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
+    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,8 +35,12 @@ public class Login extends HttpServlet {
      */
     public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("AllPost", TransaccionDataAccess.getAll());
-        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/AllPost.jsp");
+        String LoginName = request.getParameter("LoginName");
+            String Password = request.getParameter("Password");
+            
+            
+        request.setAttribute("Login", LoginDataAccess.loguear());
+        RequestDispatcher rd = request.getRequestDispatcher("/Login/logueado.jsp");
         rd.forward(request, response);
     }
 

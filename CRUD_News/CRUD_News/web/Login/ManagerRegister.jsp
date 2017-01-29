@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="dao.LoginDataAccess"%>
-<%@page import="model.Login"%>
+<%@page import="model.Register"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,8 +20,9 @@
             String Password = request.getParameter("Password");
             String FirstName = request.getParameter("FirstName");
             String LastName = request.getParameter("LastName");
+            String Email = request.getParameter("Email");
             
-            Login n = new Login( UserID, LoginName, Password, FirstName, LastName);
+            Register n = new Register( UserID, LoginName, Password, FirstName, LastName, Email);
             LoginDataAccess da = new LoginDataAccess();
             da.addNew(n);
             

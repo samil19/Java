@@ -87,7 +87,6 @@ input {
 	background: rgba(238, 236, 240, 0.2);	
 	box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
 } 
-
 @font-face {
     font-family: 'FontomasCustomRegular';
     src: url('fonts/fontomas-webfont.eot');
@@ -109,7 +108,6 @@ input {
     top: 35px;
 	width: 30px;
 }
-
 
 /*styling both submit buttons */
 #wrapper p.button input{
@@ -206,7 +204,6 @@ p.change_link{
 	top: 1px;
 }
 
-
 #register{	
 	z-index: 21;
 	opacity: 0;
@@ -235,7 +232,6 @@ p.change_link{
 		transform: translateX(0);
 	}
 }
-
 #toregister:target ~ #wrapper #login,
 #tologin:target ~ #wrapper #register{
 	animation-name: fadeOutLeftBig;
@@ -252,4 +248,3 @@ p.change_link{
 		transform: translateX(-20px);
 	}
 }
-

@@ -48,9 +48,10 @@ public class DBUtils {
         return pc;
     }
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        prepareCall("select * from Finanzas.RegistroTransacciones");
-        
- }
+    
+//    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+//        prepareCall("select * from Finanzas.RegistroTransacciones");
+//        
+// }
     }
 
