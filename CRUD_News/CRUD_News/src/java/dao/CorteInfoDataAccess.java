@@ -25,7 +25,7 @@ public class CorteInfoDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from CorteInfo").executeQuery();
             while(rs.next()){
-                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),rs.getString(6),rs.getInt(7));
+                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),rs.getString(6),rs.getInt(7), rs.getDate(8));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -35,4 +35,22 @@ public class CorteInfoDataAccess {
         
         return ls;
     }
+    
+    public static List<CorteInfo> getAllID(int ih){
+        List<CorteInfo> ls = new LinkedList<>();
+        String sql = "select * from CorteInfo where CorteID = "+ih+"";
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
+            while(rs.next()){
+                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getInt(5),rs.getString(6),rs.getInt(7), rs.getDate(8));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(CorteInfoDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return ls;
+    }
+    
 }

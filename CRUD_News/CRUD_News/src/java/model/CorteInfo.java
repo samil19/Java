@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Samil
@@ -17,8 +19,9 @@ public class CorteInfo {
     private int Monto;
     private String Comentario;
     private int CorteID;
+    private Date Fecha;
 
-    public CorteInfo(int ID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario, int CorteID) {
+    public CorteInfo(int ID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario, int CorteID, Date Fecha) {
         this.ID = ID;
         this.TipoTransaccion = TipoTransaccion;
         this.TipoPago = TipoPago;
@@ -26,10 +29,12 @@ public class CorteInfo {
         this.Monto = Monto;
         this.Comentario = Comentario;
         this.CorteID = CorteID;
+        this.Fecha = Fecha;
     }
+    
+    
+    
 
-    
-    
     public int getID() {
         return ID;
     }
@@ -86,5 +91,13 @@ public class CorteInfo {
         this.CorteID = CorteID;
     }
 
-    
+    public Date getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(Date Fecha) {
+        this.Fecha = Fecha;
+    }
+
+   
 }

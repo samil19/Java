@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/src/java/servlet/Transacciones/EditPost.java</file>
-            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/Transaccion/AllPost.jsp</file>
+            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/CorteInfo/JSP/AllPost.jsp</file>
             <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/src/java/dao/LoginDataAccess.java</file>
             <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/src/java/servlet/Login/Login.java</file>
+            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/Login/login.jsp</file>
+            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/src/java/servlet/Corte/AllCorte.java</file>
             <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/Login/ManagerLogin.jsp</file>
-            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/src/java/servlet/Transacciones/AllPost.java</file>
-            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/Login/logueado.jsp</file>
+            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/Corte/JSP/ManagerCorte.jsp</file>
+            <file>file:/C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/src/java/dao/CorteDataAccess.java</file>
         </group>
     </open-files>
 </project-private>

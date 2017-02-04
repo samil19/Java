@@ -88,22 +88,18 @@
                     <th>Nickname</th>
                     <th>Monto</th>
                     <th>Comentario</th>
-                    <th>CorteID</th>
-                    <th></th>
-                    <th></th>
+                    <th>Fecha</th>
                 </tr>
                 <c:forEach items="${AllPost}" var="p">
-                    <tr>
-                        
+                <tr>        
                     <td>${p.getID()}</td>
-                      <td>${p.getTipoPago()}</td>
-                       <td>${p.getNickname()}</td>
-                       <td>${p.getMonto()}</td>
-                       <td>${p.getComentario()}</td>
-                       <td>${p.getCorteID()}</td>
-                        
-                        
-                    </tr>
+                    <td>${p.getTipoTransaccion()}</td>
+                    <td>${p.getTipoPago()}</td>
+                    <td>${p.getNickname()}</td>
+                    <td>${p.getMonto()}</td>
+                    <td>${p.getComentario()}</td>
+                    <td>${p.getFecha()}</td>
+                </tr>
                 </c:forEach>
             </table>
         

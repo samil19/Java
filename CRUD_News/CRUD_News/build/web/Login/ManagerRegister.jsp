@@ -26,7 +26,7 @@
             LoginDataAccess da = new LoginDataAccess();
             da.addNew(n);
             
-            response.sendRedirect("/CRUD_News/login");
+            response.sendRedirect("/CRUD_News/index.html");
         %>
         
     </body>

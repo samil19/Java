@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Samil
@@ -15,17 +17,17 @@ public class Corte {
     private int CantidadIngresos;
     private int Corte;
     private String Nickname;
+    private Date FechaInicio;
+    private Date FechaFinal;
 
-    public Corte(int CorteID, int CantidadEgresos, int CantidadIngresos, int Corte, String Nickname) {
+    public Corte(int CorteID, int CantidadEgresos, int CantidadIngresos, int Corte, String Nickname, Date FechaInicio, Date FechaFinal) {
         this.CorteID = CorteID;
         this.CantidadEgresos = CantidadEgresos;
         this.CantidadIngresos = CantidadIngresos;
         this.Corte = Corte;
         this.Nickname = Nickname;
-    }
-
-    public Corte(int aInt, int aInt0, String string, String string0, int aInt1, String string1, int aInt2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.FechaInicio = FechaInicio;
+        this.FechaFinal = FechaFinal;
     }
     
     
@@ -70,6 +72,22 @@ public class Corte {
         this.Nickname = Nickname;
     }
 
+    public Date getFechaInicio() {
+        return FechaInicio;
+    }
+
+    public void setFechaInicio(Date FechaInicio) {
+        this.FechaInicio = FechaInicio;
+    }
+
+    public Date getFechaFinal() {
+        return FechaFinal;
+    }
+
+    public void setFechaFinal(Date FechaFinal) {
+        this.FechaFinal = FechaFinal;
+    }
     
     
+
 }

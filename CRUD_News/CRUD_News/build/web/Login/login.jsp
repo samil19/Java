@@ -1,3 +1,10 @@
+<%-- 
+    Document   : login
+    Created on : Jan 31, 2017, 10:26:40 PM
+    Author     : Samil
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
@@ -28,7 +35,7 @@
                         <div id="login" class="animate form">
                             <form  action="ManagerLogin.jsp" autocomplete="post"> 
                                 <h1>Log in</h1>
-                                <p> 
+                                <p>
                                     <label for="username" class="uname" data-icon="u" > Your username </label>
                                     <input id="username" name="LoginName" required="required" type="text" placeholder="myusername"/>
                                 </p>
@@ -38,7 +45,8 @@
                                 </p>
                             
                                 <p class="login button"> 
-                                    <input type="submit" value="Submit" /> 
+                                    <input type="submit" value="Submit" />
+                               
 								</p>
                                 <p class="change_link">
 									Not a member yet ?

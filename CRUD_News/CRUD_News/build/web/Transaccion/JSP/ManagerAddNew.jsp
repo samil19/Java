@@ -4,6 +4,8 @@
     Author     : Thang
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
 <%@page import="dao.TransaccionDataAccess"%>
 <%@page import="model.Transaccion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,9 +23,10 @@
             String Nickname = request.getParameter("Nickname");
             int Monto = Integer.parseInt(request.getParameter("Monto"));
             String Comentario = request.getParameter("Comentario");
+            java.sql.Date Fecha = java.sql.Date.valueOf( request.getParameter("Fecha") );
             
             
-            Transaccion n = new Transaccion( TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario);
+            Transaccion n = new Transaccion( TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario, Fecha);
             TransaccionDataAccess da = new TransaccionDataAccess();
             da.addNew(n);
             

@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet.Login;
+package servlet.CorteInfo;
 
-import dao.LoginDataAccess;
+import dao.CorteInfoDataAccess;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,29 +18,23 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Samil
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class Login extends HttpServlet {
-
-    
-
+public class AllCorteInfoID extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
      * @param request servlet request
      * @param response servlet response
-     * @throws java.io.UnsupportedEncodingException
-
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException
-             {
-        request.setAttribute("Login", LoginDataAccess.loguear());
-        RequestDispatcher rd = request.getRequestDispatcher("/Login/logueado.jsp");
-        try {
-            rd.forward(request, response);
-        } catch (ServletException | IOException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String idact = request.getParameter("id");
+        int id = Integer.parseInt(idact);
+        request.setAttribute("AllPost", CorteInfoDataAccess.getAllID(id));
+        RequestDispatcher rd = request.getRequestDispatcher("/CorteInfo/JSP/AllPost.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -86,3 +77,4 @@ public class Login extends HttpServlet {
     }// </editor-fold>
 
 }
+

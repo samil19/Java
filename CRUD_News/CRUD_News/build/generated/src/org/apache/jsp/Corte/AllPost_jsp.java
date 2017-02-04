@@ -137,6 +137,8 @@ public final class AllPost_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <th>Cantidad Ingresos</th>\n");
       out.write("                    <th>Corte</th>\n");
       out.write("                    <th>Nickname</th>\n");
+      out.write("                    <th>Fecha Desde</th>\n");
+      out.write("                    <th>Fecha Hasta</th>\n");
       out.write("                    <th></th>\n");
       out.write("                    <th></th>\n");
       out.write("                </tr>\n");
@@ -196,7 +198,17 @@ public final class AllPost_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                        <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getNickname()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                        \n");
+          out.write("                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getFechaInicio()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                        <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getFechaFinal()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                        <td>\n");
+          out.write("                            <button type=\"button\"><a href=\"allcorteinfo?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getCorteID()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">Info</button>\n");
+          out.write("                        </td>\n");
           out.write("                        <td>\n");
           out.write("                            \n");
           out.write("                            \n");

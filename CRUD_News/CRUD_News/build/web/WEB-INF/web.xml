@@ -20,6 +20,10 @@
         <servlet-name>AllCorteInfo</servlet-name>
         <servlet-class>servlet.CorteInfo.AllCorteInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AllCorteInfoID</servlet-name>
+        <servlet-class>servlet.CorteInfo.AllCorteInfoID</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EditPost</servlet-name>
         <url-pattern>/edit</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AllCorteInfo</servlet-name>
         <url-pattern>/allcorteinfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllCorteInfoID</servlet-name>
+        <url-pattern>/AllCorteInfoID</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

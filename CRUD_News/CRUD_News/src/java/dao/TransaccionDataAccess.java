@@ -23,12 +23,13 @@ import model.Transaccion;
 public class TransaccionDataAccess {
     public void addNew(Transaccion n){
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Transaccion values( ?, ?, ?, ?, ?)");
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Transaccion values( ?, ?, ?, ?, ?, ?)");
             ps.setString(1, n.getTipoTransaccion());
             ps.setString(2, n.getTipoPago());
             ps.setString(3, n.getNickname());
             ps.setInt(4, n.getMonto());
             ps.setString(5, n.getComentario());
+            ps.setDate(6, n.getFecha());
             ps.executeUpdate();
             addNew2(n);
             
@@ -40,13 +41,14 @@ public class TransaccionDataAccess {
     
     public void addNew2(Transaccion z) {
         try{
-        PreparedStatement in = DBUtils.getPreparedStatement("insert into CorteInfo values( ?, ?, ?, ?, ?, ?)");
+        PreparedStatement in = DBUtils.getPreparedStatement("insert into CorteInfo values( ?, ?, ?, ?, ?, ?, ?)");
             in.setString(1, z.getTipoTransaccion());
             in.setString(2, z.getTipoPago());
             in.setString(3, z.getNickname());
             in.setInt(4, z.getMonto());
             in.setString(5, z.getComentario());
             in.setInt(6, 0);
+            in.setDate(7, z.getFecha());
             in.executeUpdate();
             } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,7 +61,7 @@ public class TransaccionDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from Transaccion").executeQuery();
             while(rs.next()){
-                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6));
+                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -76,7 +78,7 @@ public class TransaccionDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next()){
-                Transaccion n = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6));
+                Transaccion n = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {

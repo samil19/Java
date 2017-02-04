@@ -16,9 +16,11 @@
     <body>
         <% 
             String Nickname = request.getParameter("Nickname");
+            java.sql.Date FechaInicio = java.sql.Date.valueOf( request.getParameter("FechaInicio") );
+            java.sql.Date FechaFinal = java.sql.Date.valueOf( request.getParameter("FechaFinal") );
             int CorteID = Integer.parseInt(request.getParameter("CorteID"));
             CorteDataAccess da = new CorteDataAccess();
-            da.corte(CorteID, Nickname);
+            da.corte(CorteID, Nickname, FechaInicio, FechaFinal);
             
             response.sendRedirect("/CRUD_News/allcorte");
         %>

@@ -16,13 +16,11 @@
         <% 
             String LoginName = request.getParameter("LoginName");
             String Password = request.getParameter("Password");
-            
-            
             Login n = new Login(LoginName, Password);
             LoginDataAccess da = new LoginDataAccess();
             da.loguear(n);
             
-            response.sendRedirect("/CRUD_News/Login");
+            response.sendRedirect("/CRUD_News/login");
         %>
         
     </body>

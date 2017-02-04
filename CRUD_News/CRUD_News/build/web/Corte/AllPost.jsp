@@ -88,6 +88,8 @@
                     <th>Cantidad Ingresos</th>
                     <th>Corte</th>
                     <th>Nickname</th>
+                    <th>Fecha Desde</th>
+                    <th>Fecha Hasta</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -98,7 +100,11 @@
                         <td>${p.getCantidadIngresos()}</td>
                         <td>${p.getCorte()}</td>
                         <td>${p.getNickname()}</td>
-                        
+                        <td>${p.getFechaInicio()}</td>
+                        <td>${p.getFechaFinal()}</td>
+                        <td>
+                            <button type="button"><a href="AllCorteInfoID?id=${p.getCorteID()}">Info</button>
+                        </td>
                         <td>
                             
                             
