@@ -7,6 +7,7 @@
 package dao;
 
 import db.DBUtils;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +32,7 @@ public class TransaccionDataAccess {
             ps.setString(5, n.getComentario());
             ps.setDate(6, n.getFecha());
             ps.executeUpdate();
-            addNew2(n);
+//            addNew2(n);
             
             
         } catch (ClassNotFoundException | SQLException ex) {
@@ -39,21 +40,24 @@ public class TransaccionDataAccess {
         }
     }
     
-    public void addNew2(Transaccion z) {
-        try{
-        PreparedStatement in = DBUtils.getPreparedStatement("insert into CorteInfo values( ?, ?, ?, ?, ?, ?, ?)");
-            in.setString(1, z.getTipoTransaccion());
-            in.setString(2, z.getTipoPago());
-            in.setString(3, z.getNickname());
-            in.setInt(4, z.getMonto());
-            in.setString(5, z.getComentario());
-            in.setInt(6, 0);
-            in.setDate(7, z.getFecha());
-            in.executeUpdate();
-            } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public void addNew2(Transaccion z) {
+//        try{
+//            
+//        PreparedStatement in = DBUtils.getPreparedStatement("insert into CorteInfo values( ?, ?, ?, ?, ?, ?, ?, ?)");
+//            in.setInt(1, 0);
+//            in.setString(2, z.getTipoTransaccion());
+//            in.setString(3, z.getTipoPago());
+//            in.setString(4, z.getNickname());
+//            in.setInt(5, z.getMonto());
+//            in.setString(6, z.getComentario());
+//            in.setInt(7, 0);
+//            in.setDate(8, z.getFecha());
+//            in.executeUpdate();
+//            
+//            } catch (ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     
     public static List<Transaccion> getAll(){
         List<Transaccion> ls = new LinkedList<>();
@@ -87,15 +91,16 @@ public class TransaccionDataAccess {
         return ls;
     }
     
-    public void edit(int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario){
+    public void edit(int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario, Date Fecha){
         try {
-            String sql = "update Transaccion SET TipoTransaccion = ?, TipoPago = ?, Nickname = ?, Monto = ?, Comentario = ?" + " where TransaccionID = "+ TransaccionID;
+            String sql = "update Transaccion SET TipoTransaccion = ?, TipoPago = ?, Nickname = ?, Monto = ?, Comentario = ?, Fecha = ?" + " where TransaccionID = "+ TransaccionID;
             PreparedStatement ps= DBUtils.getPreparedStatement(sql);
             ps.setString(1, TipoTransaccion);
             ps.setString(2, TipoPago);
             ps.setString(3, Nickname);
             ps.setInt(4, Monto);
             ps.setString(5, Comentario);
+            ps.setDate(6, Fecha);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,9 +111,27 @@ public class TransaccionDataAccess {
     public void delete(int TransaccionID){
         try {
             String sql = "delete Transaccion where TransaccionID = ?";
+            String sql2 = "delete CorteInfo where TransaccionID = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.setInt(1, TransaccionID);
             ps.executeUpdate();
+            PreparedStatement ps2 = DBUtils.getPreparedStatement(sql2);
+            ps2.setInt(1, TransaccionID);
+            ps2.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    public void delete2(int TransaccionID){
+        try {
+            String sql = "delete Transaccion where TransaccionID = ?";
+            
+            PreparedStatement ps = DBUtils.getPreparedStatement(sql);
+            ps.setInt(1, TransaccionID);
+            ps.executeUpdate();
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }

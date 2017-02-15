@@ -195,7 +195,10 @@ public final class EditPost_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                    <textarea name=\"Comentario\" style=\"width: 400px; height: 200px\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getComentario()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</textarea><br>\n");
-          out.write("                    \n");
+          out.write("                    Fecha:<br>\n");
+          out.write("                    <input type=\"text\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getFecha()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" name=\"Monto\" style=\"width: 200px\"><br>\n");
           out.write("                    <input type=\"submit\" value=\"Submit\">\n");
           out.write("                </form>\n");
           out.write("            ");

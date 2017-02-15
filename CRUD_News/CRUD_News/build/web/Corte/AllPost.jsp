@@ -83,7 +83,7 @@
          <div class="form-style-5">
             <table cellpadding="10">
                 <tr>
-                    <th>Corte ID</th>
+                    <th>Numero de Corte</th>
                     <th>Cantidad Egresos</th>
                     <th>Cantidad Ingresos</th>
                     <th>Corte</th>

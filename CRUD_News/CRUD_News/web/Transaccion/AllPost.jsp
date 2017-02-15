@@ -87,7 +87,7 @@
        <div class="form-style-5">
             <table cellpadding="10">
                 <tr>
-                    <th>Transaccion ID</th>
+                    <th>Numero de Transaccion</th>
                     <th>Tipo de Transaccion</th>
                     <th>Tipo de Pago</th>
                     <th>Nickname</th>

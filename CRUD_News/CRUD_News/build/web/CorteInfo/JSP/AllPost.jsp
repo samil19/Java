@@ -83,7 +83,8 @@
             <div class="form-style-5">
             <table cellpadding="10">
                 <tr>
-                <th>ID</th>
+                <th>Numero de Transaccion</th>
+                <th>Tipo Transaccion</th>
                     <th>TipoPago</th>
                     <th>Nickname</th>
                     <th>Monto</th>
@@ -92,7 +93,7 @@
                 </tr>
                 <c:forEach items="${AllPost}" var="p">
                 <tr>        
-                    <td>${p.getID()}</td>
+                    <td>${p.getTransaccionID()}</td>
                     <td>${p.getTipoTransaccion()}</td>
                     <td>${p.getTipoPago()}</td>
                     <td>${p.getNickname()}</td>

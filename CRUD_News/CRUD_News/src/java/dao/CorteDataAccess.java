@@ -52,7 +52,7 @@ public class CorteDataAccess {
             while(rs.next()){
                 Transaccion r = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7));
                 egresos -= rs.getInt(5);
-                da.delete(rs.getInt(1));
+                da.delete2(rs.getInt(1));
             }
             
             
@@ -61,7 +61,7 @@ public class CorteDataAccess {
             while(ri.next()){
                 Transaccion r = new Transaccion(ri.getInt(1), ri.getString(2), ri.getString(3), ri.getString(4), ri.getInt(5), ri.getString(6), ri.getDate(7));
                 ingresos += ri.getInt(5);
-                da.delete(ri.getInt(1));
+                da.delete2(ri.getInt(1));
             }
             
             
