@@ -87,12 +87,13 @@
        <div class="form-style-5">
             <table cellpadding="10">
                 <tr>
-                    <th>Transaccion ID</th>
+                    <th>Numero de Transaccion</th>
                     <th>Tipo de Transaccion</th>
                     <th>Tipo de Pago</th>
                     <th>Nickname</th>
                     <th>Monto</th>
                     <th>Comentario</th>
+                    <th>Fecha</th>
                     <th></th>
                 </tr>
                 <c:forEach items="${AllPost}" var="p">
@@ -103,6 +104,7 @@
                         <td>${p.getNickname()}</td>
                         <td>${p.getMonto()}</td>
                         <td>${p.getComentario()}</td>
+                        <td>${p.getFecha()}</td>
                         <td>
                             <a href="edit?id=${p.getTransaccionID()}">Edit</a>
                             <a href="delete?id=${p.getTransaccionID()}">Delete</a>

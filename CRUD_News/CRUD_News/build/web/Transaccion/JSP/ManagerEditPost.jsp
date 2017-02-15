@@ -21,9 +21,10 @@
             String Nickname = request.getParameter("Nickname");
             int Monto = Integer.parseInt(request.getParameter("Monto"));
             String Comentario = request.getParameter("Comentario");
+            java.sql.Date Fecha = java.sql.Date.valueOf( request.getParameter("Fecha") );
             
             TransaccionDataAccess da = new TransaccionDataAccess();
-            da.edit(TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario);
+            da.edit(TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario, Fecha);
             
             response.sendRedirect("/CRUD_News/allpost");
         %>

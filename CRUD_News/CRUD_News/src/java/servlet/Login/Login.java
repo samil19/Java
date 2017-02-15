@@ -6,9 +6,10 @@
 package servlet.Login;
 
 import dao.LoginDataAccess;
-import dao.TransaccionDataAccess;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +21,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Samil
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
+
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,14 +32,18 @@ public class Login extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws java.io.UnsupportedEncodingException
+
      */
-    public void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setAttribute("AllPost", TransaccionDataAccess.getAll());
-        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/AllPost.jsp");
-        rd.forward(request, response);
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException
+             {
+        request.setAttribute("Login", LoginDataAccess.loguear());
+        RequestDispatcher rd = request.getRequestDispatcher("/Login/logueado.jsp");
+        try {
+            rd.forward(request, response);
+        } catch (ServletException | IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

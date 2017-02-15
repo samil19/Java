@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 
 /**
  *
@@ -17,16 +19,21 @@ public class Transaccion {
     private String Nickname;
     private int Monto;
     private String Comentario;
+    private Date Fecha;
 
-    public Transaccion(int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario) {
+    public Transaccion(int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario, Date Fecha) {
         this.TransaccionID = TransaccionID;
         this.TipoTransaccion = TipoTransaccion;
         this.TipoPago = TipoPago;
         this.Nickname = Nickname;
         this.Monto = Monto;
         this.Comentario = Comentario;
+        this.Fecha = Fecha;
     }
     
+    
+    
+
     public int getTransaccionID() {
         return TransaccionID;
     }
@@ -75,6 +82,14 @@ public class Transaccion {
         this.Comentario = Comentario;
     }
 
-   
+    public Date getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(Date Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    
     
 }
