@@ -94,7 +94,7 @@
                     <th>Monto</th>
                     <th>Comentario</th>
                     <th>Fecha</th>
-                    <th></th>
+                    <th>Direccion</th>
                 </tr>
                 <c:forEach items="${AllPost}" var="p">
                     <tr>
@@ -105,6 +105,8 @@
                         <td>${p.getMonto()}</td>
                         <td>${p.getComentario()}</td>
                         <td>${p.getFecha()}</td>
+                        <td>${p.getDireccion()}</td>
+                        
                         <td>
                             <a href="edit?id=${p.getTransaccionID()}">Edit</a>
                             <a href="delete?id=${p.getTransaccionID()}">Delete</a>

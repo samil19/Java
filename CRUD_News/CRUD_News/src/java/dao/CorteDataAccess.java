@@ -50,7 +50,7 @@ public class CorteDataAccess {
              String sqle = "select * from Transaccion where TipoTransaccion = 'Egreso' AND Nickname = '" +Nickname+"' AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Transaccion r = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7));
+                Transaccion r = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7), rs.getString(8), rs.getDouble(9), rs.getDouble(10));
                 egresos -= rs.getInt(5);
                 da.delete2(rs.getInt(1));
             }
@@ -59,7 +59,7 @@ public class CorteDataAccess {
             String sqli = "select * from Transaccion where TipoTransaccion = 'Ingreso' AND Nickname = '" +Nickname+"' AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             ResultSet ri = DBUtils.getPreparedStatement(sqli).executeQuery();
             while(ri.next()){
-                Transaccion r = new Transaccion(ri.getInt(1), ri.getString(2), ri.getString(3), ri.getString(4), ri.getInt(5), ri.getString(6), ri.getDate(7));
+                Transaccion r = new Transaccion(ri.getInt(1), ri.getString(2), ri.getString(3), ri.getString(4), ri.getInt(5), ri.getString(6), ri.getDate(7), rs.getString(8), rs.getDouble(9), rs.getDouble(10));
                 ingresos += ri.getInt(5);
                 da.delete2(ri.getInt(1));
             }

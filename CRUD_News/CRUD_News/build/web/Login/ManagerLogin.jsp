@@ -16,9 +16,10 @@
         <% 
             String LoginName = request.getParameter("LoginName");
             String Password = request.getParameter("Password");
-            Login n = new Login(LoginName, Password);
-            LoginDataAccess da = new LoginDataAccess();
-            da.loguear(n);
+            request.setAttribute("password", Password);
+            request.setAttribute("loginname",LoginName);
+            request.getRequestDispatcher("login").forward(request,response);
+            
             
             response.sendRedirect("/CRUD_News/login");
         %>

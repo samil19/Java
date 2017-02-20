@@ -21,12 +21,14 @@
             String TipoTransaccion = request.getParameter("TipoTransaccion");
             String TipoPago = request.getParameter("TipoPago");
             String Nickname = request.getParameter("Nickname");
-            int Monto = Integer.parseInt(request.getParameter("Monto"));
+            double Monto = Double.parseDouble(request.getParameter("Monto"));
             String Comentario = request.getParameter("Comentario");
-            java.sql.Date Fecha = java.sql.Date.valueOf( request.getParameter("Fecha") );
+            java.sql.Date Fecha = java.sql.Date.valueOf( request.getParameter("Fecha"));
+            String Direccion = request.getParameter("Direccion");
+            double Latitud = Double.parseDouble(request.getParameter("Latitud"));
+            double Longitud = Double.parseDouble(request.getParameter("Longitud"));
             
-            
-            Transaccion n = new Transaccion( TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario, Fecha);
+            Transaccion n = new Transaccion( TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario, Fecha, Direccion, Latitud, Longitud);
             TransaccionDataAccess da = new TransaccionDataAccess();
             da.addNew(n);
             

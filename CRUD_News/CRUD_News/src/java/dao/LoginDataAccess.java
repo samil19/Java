@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,15 +35,20 @@ public class LoginDataAccess {
 
     
     
-    public void addNew(Register n){
+    public void addNew(Register n) throws UnsupportedEncodingException{
+        String uniqueID = UUID.randomUUID().toString();
+        String Password = n.getPassword();
+        String Passwordhash =null;
+        Passwordhash=get_SHA_512_SecurePassword(Password,uniqueID);
         try {
-            CallableStatement ps = DBUtils.prepareCall("EXEC dbo.uspAddUser ?,?,?,?,?");
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into [dbo].[User] values(?,?,?,?,?,?)");
             
             ps.setString(1, n.getLoginName());
-            ps.setString(2, n.getPassword());
+            ps.setString(2, Passwordhash);
             ps.setString(3, n.getFirstName());
             ps.setString(4, n.getLastName());
             ps.setString(5, n.getEmail());
+            ps.setString(6, uniqueID);
             ps.executeQuery();
             
             
@@ -51,26 +57,39 @@ public class LoginDataAccess {
         }
     }
     
-    public static String loguear(Login n) throws UnsupportedEncodingException{
+    public static String loguear(String LoginName,String Password) throws UnsupportedEncodingException{
+        
+        String basepassword = null;
         String Passwordhash =null;
-        int id=0;
-        String rid=null;
+        String salt=null;
+        int id = 0;
+        String Nombre = null;
+        String Response = null;
         try {
-            String sql ="SELECT UserID FROM [dbo].[User] WHERE LoginName = '"+ LoginName+"'" ;
-            
+            String sql ="SELECT * FROM [dbo].[User] WHERE LoginName = '"+ LoginName+"'" ;
             
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
-            id=rs.getInt(1);
-            rid=Integer.toString(id);
-            Passwordhash=get_SHA_512_SecurePassword(Password,rid);
-           
-                
-                
+            while(rs.next()){
+                id=rs.getInt(1);
+                basepassword = rs.getString(3);
+                Nombre=rs.getString(2);
+            salt=rs.getString(7);   
+            }
+            Passwordhash=get_SHA_512_SecurePassword(Password,salt);
+            
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(LoginDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return Passwordhash ;
+        if(LoginName.equals(Nombre)){
+            if(Passwordhash.equals(basepassword)){
+              return  Response = Nombre;
+            }
+            else{
+               return Response = "Nombre o Contraseña incorrectos";
+            }
+        }
+       return "Hola";
     }
    
     

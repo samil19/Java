@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:forEach items="${loguear}" var="p">
+        <c:forEach items="${Response}" var="p">
                     <tr>
-                        <td>${p.getMensaje()}</td>
+                        <td>${p.getResponse()}</td>
                     </tr>
                 </c:forEach>
     </body>
