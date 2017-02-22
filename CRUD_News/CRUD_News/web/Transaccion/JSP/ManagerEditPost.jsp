@@ -19,10 +19,10 @@
             String TipoTransaccion = request.getParameter("TipoTransaccion");
             String TipoPago = request.getParameter("TipoPago");
             String Nickname = request.getParameter("Nickname");
-            double Monto = Integer.parseInt(request.getParameter("Monto"));
+            double Monto = Double.parseDouble(request.getParameter("Monto"));
             String Comentario = request.getParameter("Comentario");
             java.sql.Date Fecha = java.sql.Date.valueOf( request.getParameter("Fecha") );
-            String Drieccion = request.getParameter("Direccion");
+            String Direccion = request.getParameter("Direccion");
             double Latitud = Double.parseDouble(request.getParameter("Latitud"));
             double Longitud = Double.parseDouble(request.getParameter("Longitud"));
             

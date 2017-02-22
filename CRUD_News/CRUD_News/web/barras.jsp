@@ -31,9 +31,9 @@
         String sqle ="SELECT * FROM Transaccion";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6));
+                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getDate(7), rs.getString(8), rs.getDouble(9), rs.getDouble(10));
                 ID=Integer.toString(rs.getInt(1));
-                data.setValue(rs.getInt(5), rs.getString(2), rs.getString(2)+"= "+rs.getInt(5));
+                data.setValue(rs.getDouble(5), rs.getString(2), rs.getString(2)+"= "+rs.getDouble(5));
             }
             
             

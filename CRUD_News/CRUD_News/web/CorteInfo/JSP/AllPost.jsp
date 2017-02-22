@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+        <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"/> 
          <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Slick slider css -->
@@ -22,8 +23,6 @@
     <link rel="stylesheet" href="css/animate.css"> 
     <!-- Main style css -->
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>     
         <title>All Posts</title>

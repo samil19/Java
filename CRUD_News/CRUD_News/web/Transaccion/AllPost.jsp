@@ -22,7 +22,7 @@
     <!-- Main style css -->
     <link rel="stylesheet" href="style.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"/> 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>  
     
@@ -63,7 +63,7 @@
                 background-image: url("slider/asfalt.png")
             }
             .form-style-5 {
-           max-width: 750px;
+           max-width: 810px;
     padding: 10px 20px;
     background: #f4f7f8;
     margin: 10px auto;
@@ -71,15 +71,21 @@
     background: #f4f7f8;
     border-radius: 8px;
     font-family: Georgia, "Times New Roman", Times, serif;
+            }
     .navbar-default {
     background-color: black;
     border-color: black;
 }
-            }
+
+            
+            
+
             
             
 
         </style>
+        <br>
+        <br>
         <br>
         <br>
         <br>
@@ -89,7 +95,7 @@
                 <tr>
                     <th>Numero de Transaccion</th>
                     <th>Tipo de Transaccion</th>
-                    <th>Tipo de Pago</th>
+                    <th>Tipo de&nbspPago</th>
                     <th>Nickname</th>
                     <th>Monto</th>
                     <th>Comentario</th>
@@ -105,11 +111,13 @@
                         <td>${p.getMonto()}</td>
                         <td>${p.getComentario()}</td>
                         <td>${p.getFecha()}</td>
-                        <td>${p.getDireccion()}</td>
+                        <td><div style="height:120px; overflow:hidden;">${p.getDireccion()}</div></td>
                         
                         <td>
-                            <a href="edit?id=${p.getTransaccionID()}">Edit</a>
-                            <a href="delete?id=${p.getTransaccionID()}">Delete</a>
+                             <button type="button"><a href="edit?id=${p.getTransaccionID()}">Edit</a></button>
+                             <br>
+                             <br>
+                             <button type="button"><a href="delete?id=${p.getTransaccionID()}">Delete</a></button>
                         </td>
                     </tr>
                 </c:forEach>

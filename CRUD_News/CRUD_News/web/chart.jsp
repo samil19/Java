@@ -30,7 +30,7 @@
         String sqle ="SELECT * FROM Corte";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Corte n= new Corte(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
+                Corte n= new Corte(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
                 ID=Integer.toString(rs.getInt(1));
                 data.setValue(ID,rs.getInt(4));
             }

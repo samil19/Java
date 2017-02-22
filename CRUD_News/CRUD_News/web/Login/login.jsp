@@ -13,6 +13,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"/> 
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 

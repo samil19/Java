@@ -10,6 +10,9 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+        
+  <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"> 
+
          <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Slick slider css -->
@@ -20,13 +23,29 @@ and open the template in the editor.
     <link rel="stylesheet" href="css/animate.css"> 
     <!-- Main style css -->
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>  
     </head>
     <body background="slider/asfalt.png">
         <style type="text/css">
+            
+            .form-style-5 {
+           max-width: 750px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+            }
+    .navbar-default {
+    background-color: black;
+    border-color: black;
+}
+            
+            
             
              #map {
             height: 500px;
@@ -205,9 +224,28 @@ and open the template in the editor.
                 
                 <input type="hidden" name="TransaccionID" style="width: 200px" value="1" readonly>
                 Tipo de Transaccion<br>
-                <input type="text" name="TipoTransaccion" style="width: 200px" required><br>
+                
+               <select name="TipoTransaccion" style="width: 200px" required>
+   <option value="Egreso">Egreso</option> 
+   <option value="Ingreso">Ingreso</option> 
+</select>
+                
+                <br>
                 Tipo de Pago<br>
-                <input type="text" name="TipoPago" style="width: 200px" required><br>
+                
+                <select name="TipoPago" style="width: 200px" required>
+   <option value="Efectivo">Efectivo</option> 
+   <option value="Tarjeta">Tarjeta</option>
+   <option value="Paypal">Paypal</option> 
+   <option value="Bitcoin">Bitcoin</option>
+   <option value="Transferencia Bancaria">Transferencia Bancaria</option> 
+   <option value="Cheque">Cheque</option>
+   <option value="Intercambio">Intercambio</option> 
+   <option value="Otro">Otro</option>
+</select>
+                
+                
+                <br>
                 Nickname<br>
                 <input type="text" name="Nickname" style="width: 200px" required><br>
                 Monto<br>
@@ -231,7 +269,7 @@ and open the template in the editor.
                 
                 
                 <input id="pac-input" class="controls" type="text" name="Direccion"
-           placeholder="Enter a location">
+                       placeholder="Enter a location" required>
 
     <div id="type-selector" class="controls">
         <input type="radio" name="type" id="changetype-all" checked="checked">
