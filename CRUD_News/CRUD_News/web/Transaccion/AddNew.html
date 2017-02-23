@@ -28,6 +28,21 @@ and open the template in the editor.
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>  
     </head>
     <body background="slider/asfalt.png">
+        
+        <script type="text/javascript">
+function cambiar(esto)
+{
+    vista=document.getElementById(esto).style.display;
+    if (vista==='none')
+        vista='block';
+    else
+        vista='none';
+
+    document.getElementById(esto).style.display = vista;
+}
+</script>
+        
+        
         <style type="text/css">
             
             .form-style-5 {
@@ -218,6 +233,16 @@ and open the template in the editor.
 <br>
         <br>
         <br>
+        
+        <div id="caldiv" style="position:fixed;  bottom: 20px; width: 100%; display:none; height: 339px; z-index: 2;">
+<iframe src="./CurrencyConverter.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  style="background-color: rgb(255, 255, 255); height:339px;"></iframe>
+                
+</div>
+        
+        
+        <a href="#" style="position:fixed;  bottom: 0; width: 100%;" onclick="cambiar('cal'); return false;">Calculadora</a>
+    <buttom><a href="#" style="position:fixed;  bottom: 0; width: 100%;" onclick="cambiar('caldiv'); return false;">Calculadora de Divisas</a></buttom>
+        
 <div class="form-style-5">
         <legend>Nueva Transaccion  <span class="number">1</span></legend>
             <form action="JSP/ManagerAddNew.jsp" method="post">
@@ -282,7 +307,7 @@ and open the template in the editor.
         <label for="changetype-address">Addresses</label>
     </div>
         
-        <div id="map"></div>
+                <div id="map" style="position:fixed;"></div>
 
     <script>
     function initMap() {
@@ -307,11 +332,7 @@ and open the template in the editor.
             anchorPoint: new google.maps.Point(0, -29)
         });
 
-        google.maps.event.addListener(marker, 'dragend', function (event) {
-            document.getElementById("Latitud").value = this.getPosition().lat();
-            document.getElementById("Longitud").value = this.getPosition().lng();
-        });
-
+        
         autocomplete.addListener('place_changed', function () {
             infowindow.close();
             marker.setVisible(false);
@@ -353,6 +374,14 @@ and open the template in the editor.
 });
             // Sets a listener on a radio button to change the filter type on Places
             // Autocomplete.
+            
+            google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById("Latitud").value = this.getPosition().lat();
+            document.getElementById("Longitud").value = this.getPosition().lng();
+        });
+
+            
+            
             function setupClickListener(id, types) {
                 var radioButton = document.getElementById(id);
                 radioButton.addEventListener('click', function() {

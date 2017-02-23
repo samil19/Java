@@ -52,6 +52,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!--[if (gt IE 9)|!(IE)]><!--> <html lang=\"en\" class=\"no-js\"> <!--<![endif]-->\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta charset=\"UTF-8\" />\r\n");
+      out.write("        <link rel=\"icon\" type=\"image/png\" href=http://i64.tinypic.com/rsfvxg.png\"/> \r\n");
       out.write("        <!-- <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">  -->\r\n");
       out.write("        <title>Login</title>\r\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> \r\n");

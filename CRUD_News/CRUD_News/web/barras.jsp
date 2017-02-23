@@ -39,7 +39,7 @@
             
             JFreeChart grafico=ChartFactory.createBarChart("Transacciones", "Tipos de Transacciones", "Estadistica",data,PlotOrientation.VERTICAL, true,true,true);
 
-ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/img/barchart.png"), grafico, 500, 500);
+ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/img/barchart.png"), grafico, 500, 500);
 } catch (Exception ex) {
             out.print(ex);
         }
