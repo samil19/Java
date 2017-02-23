@@ -13,14 +13,14 @@ import java.sql.Date;
  */
 public class Corte {
     private int CorteID;
-    private int CantidadEgresos;
-    private int CantidadIngresos;
-    private int Corte;
+    private double CantidadEgresos;
+    private double CantidadIngresos;
+    private double Corte;
     private String Nickname;
     private Date FechaInicio;
     private Date FechaFinal;
 
-    public Corte(int CorteID, int CantidadEgresos, int CantidadIngresos, int Corte, String Nickname, Date FechaInicio, Date FechaFinal) {
+    public Corte(int CorteID, double CantidadEgresos, double CantidadIngresos, double Corte, String Nickname, Date FechaInicio, Date FechaFinal) {
         this.CorteID = CorteID;
         this.CantidadEgresos = CantidadEgresos;
         this.CantidadIngresos = CantidadIngresos;
@@ -40,7 +40,7 @@ public class Corte {
         this.CorteID = CorteID;
     }
 
-    public int getCantidadEgresos() {
+    public double getCantidadEgresos() {
         return CantidadEgresos;
     }
 
@@ -48,19 +48,19 @@ public class Corte {
         this.CantidadEgresos = CantidadEgresos;
     }
 
-    public int getCantidadIngresos() {
+    public double getCantidadIngresos() {
         return CantidadIngresos;
     }
 
-    public void setCantidadIngresos(int CantidadIngresos) {
+    public void setCantidadIngresos(double CantidadIngresos) {
         this.CantidadIngresos = CantidadIngresos;
     }
 
-    public int getCorte() {
+    public double getCorte() {
         return Corte;
     }
 
-    public void setCorte(int Corte) {
+    public void setCorte(double Corte) {
         this.Corte = Corte;
     }
 

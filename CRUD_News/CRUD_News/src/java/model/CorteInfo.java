@@ -17,12 +17,15 @@ public class CorteInfo {
     private String TipoTransaccion;
     private String TipoPago;
     private String Nickname;
-    private int Monto;
+    private double Monto;
     private String Comentario;
     private int CorteID;
     private Date Fecha;
+    private String Direccion;
+    private double Latitud;
+    private double Longitud;
 
-    public CorteInfo(int ID, int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, int Monto, String Comentario, int CorteID, Date Fecha) {
+    public CorteInfo(int ID, int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, double Monto, String Comentario, int CorteID, Date Fecha, String Direccion, double Latitud, double Longitud) {
         this.ID = ID;
         this.TransaccionID = TransaccionID;
         this.TipoTransaccion = TipoTransaccion;
@@ -32,10 +35,10 @@ public class CorteInfo {
         this.Comentario = Comentario;
         this.CorteID = CorteID;
         this.Fecha = Fecha;
+        this.Direccion = Direccion;
+        this.Latitud = Latitud;
+        this.Longitud = Longitud;
     }
-    
-    
-    
 
     public int getID() {
         return ID;
@@ -77,11 +80,11 @@ public class CorteInfo {
         this.Nickname = Nickname;
     }
 
-    public int getMonto() {
+    public double getMonto() {
         return Monto;
     }
 
-    public void setMonto(int Monto) {
+    public void setMonto(double Monto) {
         this.Monto = Monto;
     }
 
@@ -109,5 +112,31 @@ public class CorteInfo {
         this.Fecha = Fecha;
     }
 
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+
+    public double getLatitud() {
+        return Latitud;
+    }
+
+    public void setLatitud(double Latitud) {
+        this.Latitud = Latitud;
+    }
+
+    public double getLongitud() {
+        return Longitud;
+    }
+
+    public void setLongitud(double Longitud) {
+        this.Longitud = Longitud;
+    }
+
+    
+    
     
 }

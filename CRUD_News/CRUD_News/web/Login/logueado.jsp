@@ -8,13 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-        <c:forEach items="${loguear}" var="p">
+        <c:forEach items="${Response}" var="p">
                     <tr>
-                        <td>${p.getMensaje()}</td>
+                        <td>${p.getResponse()}</td>
                     </tr>
                 </c:forEach>
     </body>

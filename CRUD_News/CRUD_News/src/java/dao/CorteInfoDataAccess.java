@@ -25,7 +25,7 @@ public class CorteInfoDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from CorteInfo").executeQuery();
             while(rs.next()){
-                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8), rs.getDate(9));
+                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getDouble(6),rs.getString(7),rs.getInt(8), rs.getDate(9), rs.getString(10), rs.getDouble(11), rs.getDouble(12));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -42,7 +42,7 @@ public class CorteInfoDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next()){
-                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8), rs.getDate(9));
+                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getDouble(6),rs.getString(7),rs.getInt(8), rs.getDate(9), rs.getString(10), rs.getDouble(11), rs.getDouble(12));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {

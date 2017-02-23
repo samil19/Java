@@ -30,7 +30,7 @@
         String sqle ="SELECT * FROM Corte";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Corte n= new Corte(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
+                Corte n= new Corte(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
                 ID=Integer.toString(rs.getInt(1));
                 data.setValue(ID,rs.getInt(4));
             }
@@ -38,7 +38,7 @@
             
             JFreeChart grafico=ChartFactory.createPieChart("Cortes", data, true, true, true);
 
-ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjects/CRUD_News/CRUD_News/web/img/piechart.png"), grafico, 500, 500);
+ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjects/Java/CRUD_News/CRUD_News/web/img/piechart.png"), grafico, 500, 500);
 } catch (Exception ex) {
             out.print(ex);
         }

@@ -30,7 +30,7 @@ public class CorteDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from Corte").executeQuery();
             while(rs.next()){
-                Corte n= new Corte(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
+                Corte n= new Corte(rs.getInt(1), rs.getDouble(2), rs.getDouble(3), rs.getDouble(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -43,15 +43,15 @@ public class CorteDataAccess {
     
     public void corte(int CorteID, String Nickname, Date FechaInicio, Date FechaFinal){
         try {
-            int egresos=0;
-            int ingresos=0;
-            int corte;
+            double egresos=0;
+            double ingresos=0;
+            double corte;
             TransaccionDataAccess da = new TransaccionDataAccess();
              String sqle = "select * from Transaccion where TipoTransaccion = 'Egreso' AND Nickname = '" +Nickname+"' AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Transaccion r = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7));
-                egresos -= rs.getInt(5);
+                Transaccion q = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getDate(7), rs.getString(8), rs.getDouble(9), rs.getDouble(10));
+                egresos -= rs.getDouble(5);
                 da.delete2(rs.getInt(1));
             }
             
@@ -59,8 +59,8 @@ public class CorteDataAccess {
             String sqli = "select * from Transaccion where TipoTransaccion = 'Ingreso' AND Nickname = '" +Nickname+"' AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             ResultSet ri = DBUtils.getPreparedStatement(sqli).executeQuery();
             while(ri.next()){
-                Transaccion r = new Transaccion(ri.getInt(1), ri.getString(2), ri.getString(3), ri.getString(4), ri.getInt(5), ri.getString(6), ri.getDate(7));
-                ingresos += ri.getInt(5);
+                Transaccion r = new Transaccion(ri.getInt(1), ri.getString(2), ri.getString(3), ri.getString(4), ri.getDouble(5), ri.getString(6), ri.getDate(7), ri.getString(8), ri.getDouble(9), ri.getDouble(10));
+                ingresos += ri.getDouble(5);
                 da.delete2(ri.getInt(1));
             }
             
@@ -68,29 +68,29 @@ public class CorteDataAccess {
             corte=egresos+ingresos;
             
              PreparedStatement pq = DBUtils.getPreparedStatement("insert into Corte values(?,?,?,?,?,?)");
-            pq.setInt(1, egresos);
-            pq.setInt(2, ingresos);
-            pq.setInt(3, corte);
+            pq.setDouble(1, egresos);
+            pq.setDouble(2, ingresos);
+            pq.setDouble(3, corte);
             pq.setString(4, Nickname);
             pq.setDate(5, FechaInicio);
             pq.setDate(6, FechaFinal);
             pq.executeUpdate();
             
-            corte2(egresos,ingresos,corte,Nickname);
+            corte2(egresos,ingresos,corte,Nickname,FechaInicio,FechaFinal);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(CorteDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
-    public void corte2(int eg, int in, int corte, String nickname){
+    public void corte2(double eg, double in, double corte, String nickname, Date FechaInicio, Date FechaFinal){
         int ID=0;
         try {
             ResultSet rt = DBUtils.getPreparedStatement("select * from Corte where CantidadEgresos = "+eg+" AND CantidadIngresos = "+in+" AND Corte = "+corte+" AND Nickname = '"+nickname+"'").executeQuery();
             while(rt.next()){
-            Corte n= new Corte(rt.getInt(1), rt.getInt(2), rt.getInt(3), rt.getInt(4), rt.getString(5), rt.getDate(6), rt.getDate(7));
+            Corte n= new Corte(rt.getInt(1), rt.getDouble(2), rt.getDouble(3), rt.getDouble(4), rt.getString(5), rt.getDate(6), rt.getDate(7));
             ID+=rt.getInt(1);
             }
-            String sqlo = "update CorteInfo SET CorteID= ? " + "where CorteID = 0";
+            String sqlo = "update CorteInfo SET CorteID= ? " + "where CorteID = 0 AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             PreparedStatement pz= DBUtils.getPreparedStatement(sqlo);
             pz.setInt(1, ID);
             pz.executeUpdate();

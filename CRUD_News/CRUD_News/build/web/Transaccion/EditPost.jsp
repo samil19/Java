@@ -11,17 +11,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Bootstrap -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/yessss.png" />
+        
+        <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"/> 
+        
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Slick slider css -->
     <link href="css/skdslider.css" rel="stylesheet">
     <!-- Font awesome css -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- smooth animate css file -->
     <link rel="stylesheet" href="css/animate.css"> 
     <!-- Main style css -->
     <link rel="stylesheet" href="style.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>  
     
@@ -58,6 +60,55 @@
     </head>
     <body background="slider/asfalt.png">
         <style>
+            
+            #map {
+            height: 500px;
+            width: 100%;
+        }
+         .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #pac-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 300px;
+        }
+
+            #pac-input:focus {
+                border-color: #4d90fe;
+            }
+
+        .pac-container {
+            font-family: Roboto;
+        }
+        
+        #type-selector {
+            color: #fff;
+            background-color: #4d90fe;
+            padding: 5px 11px 0px 11px;
+        }
+
+            #type-selector label {
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 300;
+            }
+            
+            
+            
             body{
                 background-image: url("slider/asfalt.png")
             }
@@ -88,10 +139,29 @@
             <c:forEach items="${getNewsById}" var="p">
                 <form action="Transaccion/JSP/ManagerEditPost.jsp" method="post">
                     <input type="hidden" name="TransaccionID" value="${p.getTransaccionID()}">
-                    Tipo de Transaccion:<br>
-                    <input type="text" value="${p.getTipoTransaccion()}" name="TipoTransaccion" style="width: 200px"><br>
-                    Tipo de Pago<br>
-                    <input type="text" value="${p.getTipoPago()}" name="TipoPago" style="width: 200px"><br>
+                    
+                    Tipo de Transaccion<br>
+                
+               <select name="TipoTransaccion" style="width: 200px" required>
+   <option value="Egreso">Egreso</option> 
+   <option value="Ingreso">Ingreso</option> 
+</select>
+                
+                <br>
+                Tipo de Pago<br>
+                
+                <select name="TipoPago" style="width: 200px" required>
+   <option value="Efectivo">Efectivo</option> 
+   <option value="Tarjeta">Tarjeta</option>
+   <option value="Paypal">Paypal</option> 
+   <option value="Bitcoin">Bitcoin</option>
+   <option value="Transferencia Bancaria">Transferencia Bancaria</option> 
+   <option value="Cheque">Cheque</option>
+   <option value="Intercambio">Intercambio</option> 
+   <option value="Otro">Otro</option>
+</select>
+                <br>
+                    
                     Nickname:<br>
                     <input type="text" value="${p.getNickname()}" name="Nickname" style="width: 200px"><br>
                     Monto:<br>
@@ -100,6 +170,124 @@
                     <textarea name="Comentario" style="width: 400px; height: 200px">${p.getComentario()}</textarea><br>
                     Fecha:<br>
                     <input type="date" value="${p.getFecha()}" name="Fecha" style="width: 200px"><br>
+                    
+                    <input type="hidden" name="Latitud" id="Latitud" value="${p.getLatitud()}" required>
+                
+                <input type="hidden" name="Longitud" id="Longitud" value="${p.getLongitud()}" required>
+                    
+                    
+                    
+                    <input id="pac-input" class="controls" type="text" name="Direccion"
+                       placeholder="Enter a location" value="${p.getDireccion()}" required>
+
+    <div id="type-selector" class="controls">
+        <input type="radio" name="type" id="changetype-all" checked="checked">
+        <label for="changetype-all">All</label>
+
+        <input type="radio" name="type" id="changetype-establishment">
+        <label for="changetype-establishment">Establishments</label>
+
+        <input type="radio" name="type" id="changetype-address">
+        <label for="changetype-address">Addresses</label>
+    </div>
+        
+        <div id="map"></div>
+
+    <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 18.4723789, lng: -69.9729824 },
+            zoom: 13
+        });
+
+        var input = (
+        document.getElementById('pac-input'));
+
+        var types = document.getElementById('type-selector');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({draggable: true,
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById("Latitud").value = this.getPosition().lat();
+            document.getElementById("Longitud").value = this.getPosition().lng();
+        });
+
+        autocomplete.addListener('place_changed', function () {
+            infowindow.close();
+            marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Autocomplete's returned place contains no geometry");
+                return;
+            }
+
+
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(17);
+            }
+            marker.setIcon(({
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(35, 35)
+            }));
+            marker.setPosition(place.geometry.location);
+            marker.setVisible(true);
+
+            var address = '';
+            if (place.address_components) {
+                address = [
+                  (place.address_components[0] && place.address_components[0].short_name || ''),
+                  (place.address_components[1] && place.address_components[1].short_name || ''),
+                  (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+            }
+
+
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+            infowindow.open(map, marker);
+});
+            // Sets a listener on a radio button to change the filter type on Places
+            // Autocomplete.
+            function setupClickListener(id, types) {
+                var radioButton = document.getElementById(id);
+                radioButton.addEventListener('click', function() {
+                    autocomplete.setTypes(types);
+                });
+            }
+
+
+
+            setupClickListener('changetype-all', []);
+            setupClickListener('changetype-address', ['address']);
+            setupClickListener('changetype-establishment', ['establishment']);
+            setupClickListener('changetype-geocode', ['geocode']);
+
+
+
+        }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLov3DZ5oTZUglO6OQ_-pDvIMZ_FsIJ_8&libraries=places&callback=initMap"
+            async defer></script>
+                    
+                    
+                    
+                    
                     <input type="submit" value="Submit">
                 </form>
             </c:forEach>
