@@ -6,14 +6,16 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Nueva Transaccion</title>
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
         
+        
+<title>Nueva Transaccion</title>
+
   <link rel="icon" type="image/png" href=http://i64.tinypic.com/rsfvxg.png"> 
 
-         <!-- Bootstrap -->
+   <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Slick slider css -->
     <link href="css/skdslider.css" rel="stylesheet">
@@ -23,13 +25,19 @@ and open the template in the editor.
     <link rel="stylesheet" href="css/animate.css"> 
     <!-- Main style css -->
     <link rel="stylesheet" href="style.css">
+
+
     
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>  
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
     </head>
-    <body background="slider/asfalt.png">
+
+
+    <body background-color:white>
         
         <script type="text/javascript">
+
 function cambiar(esto)
 {
     vista=document.getElementById(esto).style.display;
@@ -41,9 +49,8 @@ function cambiar(esto)
     document.getElementById(esto).style.display = vista;
 }
 </script>
-        
-        
-        <style type="text/css">
+
+<style type="text/css">
             
             .form-style-5 {
            max-width: 750px;
@@ -164,7 +171,7 @@ function cambiar(esto)
     height:35px;
 }
 .form-style-5 .number {
-    background: #1abc9c;
+    background: #FFD200;
     color: #fff;
     height: 30px;
     width: 30px;
@@ -185,22 +192,38 @@ function cambiar(esto)
     padding: 19px 39px 18px 39px;
     color: #FFF;
     margin: 0 auto;
-    background: #1abc9c;
+    background: #FFD200;
     font-size: 18px;
     text-align: center;
     font-style: normal;
     width: 28%;
-    border: 1px solid #16a085;
+    border: 1px solid #FFD200;
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
 }
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
 {
-    background: #109177;
+    background: #2C3539;
+border:solid #2C3539;
+}
 
+#caldiv, #cal{
+    animation-name: example;
+    animation-duration: 3s;
+}
+#cal2{
+    animation-name: example;
+    animation-duration: 4s;
+}
+@keyframes example {
+    0%   {left:-150px;}
+    25%  {left:0px;}
 }
 </style>
+        
+        
+        
 <div class="menuarea"> 
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
               <div class="container">
@@ -233,15 +256,22 @@ function cambiar(esto)
 <br>
         <br>
         <br>
+
         
-        <div id="caldiv" style="position:fixed;  bottom: 20px; width: 100%; display:none; height: 339px; z-index: 2;">
-<iframe src="./CurrencyConverter.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  style="background-color: rgb(255, 255, 255); height:339px;"></iframe>
+        <div id="caldiv" style="position:fixed;  bottom: 39px; width: auto; display:none; height: 339px; z-index: 2;">
+<iframe src="./extra/CurrencyConverter.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  style="background-color: rgb(255, 255, 255); height:339px;"></iframe>
                 
 </div>
-        
-        
-        <a href="#" style="position:fixed;  bottom: 0; width: 100%;" onclick="cambiar('cal'); return false;">Calculadora</a>
-    <buttom><a href="#" style="position:fixed;  bottom: 0; width: 100%;" onclick="cambiar('caldiv'); return false;">Calculadora de Divisas</a></buttom>
+        <div id="cal" style="position:fixed;  bottom: 0px; width: auto; display:none; height: 339px; z-index: 1; margin-left:80%;">
+<iframe src="./extra/cal.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  style="background-color: rgb(255, 255, 255); height:267px; width: 325px;"></iframe>
+                
+</div>
+<a href="#" class="download_btn appdown_btn unique" style="position:fixed;  bottom: 50%; top: auto; width: auto; z-index: 2; margin-left:-47px;" onclick="cambiar('opciones'); return false;"><img src="http://a.dryicons.com/images/icon_sets/polygon_icons/png/128x128/calculator.png" width="30%"></a>
+
+<div id="opciones" style="position:fixed;  bottom: 39px; width: auto; display:none; height: 339px; z-index: 1;">
+        <a href="#" id="cal" style="position:fixed;  bottom: 47%; top: auto; width: 146px; z-index: 2; background-color: #2C3539" onclick="cambiar('cal'); return false;">Calculadora</a>
+    <a href="#" id="cal2" style="position:fixed;  bottom: 45%; width: 146px; top: auto; z-index: 2; background-color: #2C3539" onclick="cambiar('caldiv'); return false;">Calculadora de Divisas</a>
+        </div>
         
 <div class="form-style-5">
         <legend>Nueva Transaccion  <span class="number">1</span></legend>
