@@ -6,7 +6,6 @@
 package dao;
 
 import db.DBUtils;
-import java.util.Random;
 import java.io.UnsupportedEncodingException;
 import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
@@ -57,8 +56,8 @@ public class LoginDataAccess {
         }
     }
     
-    public static String loguear(String LoginName,String Password) throws UnsupportedEncodingException{
-        
+    public static List loguear(String LoginName,String Password) throws UnsupportedEncodingException{
+        List<Register> ls = new LinkedList<>();
         String basepassword = null;
         String Passwordhash =null;
         String salt=null;
@@ -74,6 +73,8 @@ public class LoginDataAccess {
                 basepassword = rs.getString(3);
                 Nombre=rs.getString(2);
             salt=rs.getString(7);   
+            Register n = new Register (rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+            ls.add(n);
             }
             Passwordhash=get_SHA_512_SecurePassword(Password,salt);
             
@@ -83,7 +84,7 @@ public class LoginDataAccess {
         }
         if(LoginName.equals(Nombre)){
             if(Passwordhash.equals(basepassword)){
-              return  Response = Nombre;
+              return  ls;
             }
             else{
                return Response = "Nombre o Contraseña incorrectos";

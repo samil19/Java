@@ -37,9 +37,9 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException
              {
-                 String password= request.getParameter("Password");
+                 String password=request.getParameter("Password");
                  String logname= request.getParameter("LoginName");
-         request.setAttribute("Response", LoginDataAccess.loguear(logname, password));
+         request.setAttribute("logueado", LoginDataAccess.loguear(logname, password));
         RequestDispatcher rd = request.getRequestDispatcher("/Login/logueado.jsp");
         try {
             rd.forward(request, response);

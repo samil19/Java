@@ -16,10 +16,10 @@
         <% 
             String LoginName = request.getParameter("LoginName");
             String Password = request.getParameter("Password");
-            request.setAttribute("password", Password);
-            request.setAttribute("loginname",LoginName);
-            request.getRequestDispatcher("login").forward(request,response);
-            
+             request.getRequestDispatcher("login.jps").forward(request,response);
+            request.setAttribute("Password", Password);
+            request.setAttribute("LoginName",LoginName);
+           
             
             response.sendRedirect("/CRUD_News/login");
         %>

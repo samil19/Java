@@ -25,7 +25,7 @@
     <body>
         <div class="container">
             <header>
-                <h1>Login <span>FireBrand</span></h1>
+                <h1><span>FireBrand</span></h1>
             </header>
             <section>				
                 <div id="container_demo" >
@@ -34,7 +34,7 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="ManagerLogin.jsp" autocomplete="post"> 
+                            <form  action="/CRUD_News/login" method="post"> 
                                 <h1>Log in</h1>
                                 <p>
                                     <label for="username" class="uname" data-icon="u" > Your username </label>

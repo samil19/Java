@@ -24,7 +24,7 @@ and open the template in the editor.
     <!-- smooth animate css file -->
     <link rel="stylesheet" href="css/animate.css"> 
     <!-- Main style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
     
@@ -256,25 +256,28 @@ border:solid #2C3539;
 <br>
         <br>
         <br>
-
+        <br>
         
-        <div id="caldiv" style="position:fixed;  bottom: 39px; width: auto; display:none; height: 339px; z-index: 2;">
+        
+        <h1>Nueva Transaccion</h1>
+        
+        <div id="caldiv" style="position:fixed;  bottom: 39px; width: auto; display:none; height: 339px; z-index: 1;">
 <iframe src="./extra/CurrencyConverter.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  style="background-color: rgb(255, 255, 255); height:339px;"></iframe>
                 
 </div>
-        <div id="cal" style="position:fixed;  bottom: 0px; width: auto; display:none; height: 339px; z-index: 1; margin-left:80%;">
+        <div id="cal" style="position:fixed;  bottom: 0px; width: auto; display:none; height: 339px; z-index: 1; margin-left:77%;">
 <iframe src="./extra/cal.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  style="background-color: rgb(255, 255, 255); height:267px; width: 325px;"></iframe>
                 
 </div>
-<a href="#" class="download_btn appdown_btn unique" style="position:fixed;  bottom: 50%; top: auto; width: auto; z-index: 2; margin-left:-47px;" onclick="cambiar('opciones'); return false;"><img src="http://a.dryicons.com/images/icon_sets/polygon_icons/png/128x128/calculator.png" width="30%"></a>
+<a href="#" class="download_btn appdown_btn unique" style="position:fixed;  bottom: 60%; top: auto; width: auto; z-index: 2; margin-left:-47px;" onclick="cambiar('opciones'); return false;"><img src="http://a.dryicons.com/images/icon_sets/polygon_icons/png/128x128/calculator.png" width="30%"></a>
 
-<div id="opciones" style="position:fixed;  bottom: 39px; width: auto; display:none; height: 339px; z-index: 1;">
-        <a href="#" id="cal" style="position:fixed;  bottom: 47%; top: auto; width: 146px; z-index: 2; background-color: #2C3539" onclick="cambiar('cal'); return false;">Calculadora</a>
-    <a href="#" id="cal2" style="position:fixed;  bottom: 45%; width: 146px; top: auto; z-index: 2; background-color: #2C3539" onclick="cambiar('caldiv'); return false;">Calculadora de Divisas</a>
+<div id="opciones" style="position:fixed; swidth: auto; display:none; height: 339px; z-index: 1;">
+        <a href="#" id="cal" style="position:fixed;  bottom: 57%; top: auto; width: 146px; z-index: 2; background-color: #2C3539" onclick="cambiar('cal'); return false;">Calculadora</a>
+    <a href="#" id="cal2" style="position:fixed;  bottom: 54%; width: 146px; top: auto; z-index: 2; background-color: #2C3539" onclick="cambiar('caldiv'); return false;">Calculadora de Divisas</a>
         </div>
         
 <div class="form-style-5">
-        <legend>Nueva Transaccion  <span class="number">1</span></legend>
+        
             <form action="JSP/ManagerAddNew.jsp" method="post">
                 
                 <input type="hidden" name="TransaccionID" style="width: 200px" value="1" readonly>

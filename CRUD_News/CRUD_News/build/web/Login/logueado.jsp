@@ -13,9 +13,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:forEach items="${Response}" var="p">
+        <h1>Soy samil</h1>
+        <c:forEach items="${logueado}" var="p">
                     <tr>
-                        <td>${p.getResponse()}</td>
+                        <h1>${p.getUserID()}</h1>
+                        <h1>${p.getLoginName()}</h1>
+                        <h1>${p.getPasswordHash()}</h1>
+                        <h1>${p.getFirstName()}</h1>
+                        <h1>${p.getLastName()}</h1>
+                        <h1>${p.getEmail()}</h1>
+        
                     </tr>
                 </c:forEach>
     </body>

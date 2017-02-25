@@ -64,7 +64,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\r\n");
       out.write("        <div class=\"container\">\r\n");
       out.write("            <header>\r\n");
-      out.write("                <h1>Login <span>FireBrand</span></h1>\r\n");
+      out.write("                <h1><span>FireBrand</span></h1>\r\n");
       out.write("            </header>\r\n");
       out.write("            <section>\t\t\t\t\r\n");
       out.write("                <div id=\"container_demo\" >\r\n");
@@ -73,7 +73,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a class=\"hiddenanchor\" id=\"tologin\"></a>\r\n");
       out.write("                    <div id=\"wrapper\">\r\n");
       out.write("                        <div id=\"login\" class=\"animate form\">\r\n");
-      out.write("                            <form  action=\"ManagerLogin.jsp\" autocomplete=\"post\"> \r\n");
+      out.write("                            <form  action=\"/CRUD_News/login\" method=\"post\"> \r\n");
       out.write("                                <h1>Log in</h1>\r\n");
       out.write("                                <p>\r\n");
       out.write("                                    <label for=\"username\" class=\"uname\" data-icon=\"u\" > Your username </label>\r\n");
