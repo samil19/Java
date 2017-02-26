@@ -63,7 +63,6 @@ public class LoginDataAccess {
         String salt=null;
         int id = 0;
         String Nombre = null;
-        String Response = null;
         try {
             String sql ="SELECT * FROM [dbo].[User] WHERE LoginName = '"+ LoginName+"'" ;
             
@@ -78,19 +77,20 @@ public class LoginDataAccess {
             }
             Passwordhash=get_SHA_512_SecurePassword(Password,salt);
             
-            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(LoginDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(LoginName.equals(Nombre)){
             if(Passwordhash.equals(basepassword)){
+                
               return  ls;
             }
             else{
-               return Response = "Nombre o Contraseña incorrectos";
+                
+               return null;
             }
         }
-       return "Hola";
+       return null;
     }
    
     

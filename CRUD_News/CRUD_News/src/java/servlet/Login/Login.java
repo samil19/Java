@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Samil
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
 
     
@@ -39,8 +38,8 @@ public class Login extends HttpServlet {
              {
                  String password=request.getParameter("Password");
                  String logname= request.getParameter("LoginName");
-         request.setAttribute("logueado", LoginDataAccess.loguear(logname, password));
-        RequestDispatcher rd = request.getRequestDispatcher("/Login/logueado.jsp");
+        request.setAttribute("Login", LoginDataAccess.loguear(logname, password));
+        RequestDispatcher rd = request.getRequestDispatcher("Login/logueado.jsp");
         try {
             rd.forward(request, response);
         } catch (ServletException | IOException ex) {
