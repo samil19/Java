@@ -18,7 +18,7 @@ public class DBUtils {
     public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException{
         PreparedStatement ps =  null;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url = "jdbc:sqlserver://DESKTOP-3URF9CA\\SQLEXPRESS:2009;databaseName=Finanzas";
+        String url = "jdbc:sqlserver://DESKTOP-PRBVR6O\\SQLEXPRESS:2009;databaseName=Finanzas";
         String user = "sa";
         String pass = "12345";
         
@@ -38,7 +38,7 @@ public class DBUtils {
        
         CallableStatement pc =  null;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url = "jdbc:sqlserver://DESKTOP-3URF9CA\\SQLEXPRESS:2009;databaseName=Finanzas";
+        String url = "jdbc:sqlserver://DESKTOP-PRBVR6O\\SQLEXPRESS:2009;databaseName=Finanzas";
         String user = "sa";
         String pass = "12345";
         

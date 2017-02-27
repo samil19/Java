@@ -16,7 +16,6 @@ public class Transaccion {
     private int TransaccionID;
     private String TipoTransaccion;
     private String TipoPago;
-    private String Nickname;
     private double Monto;
     private String Comentario;
     private Date Fecha;
@@ -24,11 +23,10 @@ public class Transaccion {
     private double Latitud;
     private double Longitud;
 
-    public Transaccion(int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, double Monto, String Comentario, Date Fecha, String Direccion, double Latitud, double Longitud) {
+    public Transaccion(int TransaccionID, String TipoTransaccion, String TipoPago, double Monto, String Comentario, Date Fecha, String Direccion, double Latitud, double Longitud) {
         this.TransaccionID = TransaccionID;
         this.TipoTransaccion = TipoTransaccion;
         this.TipoPago = TipoPago;
-        this.Nickname = Nickname;
         this.Monto = Monto;
         this.Comentario = Comentario;
         this.Fecha = Fecha;
@@ -36,6 +34,8 @@ public class Transaccion {
         this.Latitud = Latitud;
         this.Longitud = Longitud;
     }
+    
+    
 
     public int getTransaccionID() {
         return TransaccionID;
@@ -59,14 +59,6 @@ public class Transaccion {
 
     public void setTipoPago(String TipoPago) {
         this.TipoPago = TipoPago;
-    }
-
-    public String getNickname() {
-        return Nickname;
-    }
-
-    public void setNickname(String Nickname) {
-        this.Nickname = Nickname;
     }
 
     public double getMonto() {

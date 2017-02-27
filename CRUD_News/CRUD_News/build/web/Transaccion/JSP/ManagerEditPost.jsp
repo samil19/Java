@@ -18,18 +18,18 @@
             int TransaccionID = Integer.parseInt(request.getParameter("TransaccionID"));
             String TipoTransaccion = request.getParameter("TipoTransaccion");
             String TipoPago = request.getParameter("TipoPago");
-            String Nickname = request.getParameter("Nickname");
             double Monto = Double.parseDouble(request.getParameter("Monto"));
             String Comentario = request.getParameter("Comentario");
             java.sql.Date Fecha = java.sql.Date.valueOf( request.getParameter("Fecha") );
             String Direccion = request.getParameter("Direccion");
             double Latitud = Double.parseDouble(request.getParameter("Latitud"));
             double Longitud = Double.parseDouble(request.getParameter("Longitud"));
+            int rid = Integer.parseInt(request.getParameter("UserID2"));
             
             TransaccionDataAccess da = new TransaccionDataAccess();
-            da.edit(TransaccionID, TipoTransaccion, TipoPago, Nickname, Monto, Comentario, Fecha, Direccion, Latitud, Longitud);
+            da.edit(TransaccionID, TipoTransaccion, TipoPago, Monto, Comentario, Fecha, Direccion, Latitud, Longitud, rid);
             
-            response.sendRedirect("/CRUD_News/allpost");
+            response.sendRedirect("/CRUD_News/allpost?id2="+rid+"");
         %>
     </body>
 </html>

@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
                  String password=request.getParameter("Password");
                  String logname= request.getParameter("LoginName");
         request.setAttribute("Login", LoginDataAccess.loguear(logname, password));
-        RequestDispatcher rd = request.getRequestDispatcher("Login/logueado.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
         try {
             rd.forward(request, response);
         } catch (ServletException | IOException ex) {

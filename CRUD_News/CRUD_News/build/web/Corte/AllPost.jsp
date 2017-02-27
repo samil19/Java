@@ -155,14 +155,11 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/index.html">HOME</a></li>
+                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
                     <li><a href="/CRUD_News/index.html#featuresSection">Graficos </a></li>
-                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
-                    <li><a href="/CRUD_News/allcorteinfo">Informacion de los Cortes</a></li>
-                    <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
-                    <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
-                  </ul>
+                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id"))%>">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id"))%>">Corte</a></li>
+                    </ul>
                 </div><!--/.nav-collapse -->
               </div>
             </div>
@@ -192,11 +189,15 @@ border:solid #2C3539;
                         <td>${p.getCantidadEgresos()}</td>
                         <td>${p.getCantidadIngresos()}</td>
                         <td>${p.getCorte()}</td>
-                        <td>${p.getNickname()}</td>
                         <td>${p.getFechaInicio()}</td>
                         <td>${p.getFechaFinal()}</td>
                         <td>
-                            <button type="button"><a href="AllCorteInfoID?id=${p.getCorteID()}">Info</button>
+                            <form id="${p.getCorteID()}" action="AllCorteInfoID" method="post">
+                            <input type="hidden" name="UserID" value="<%=Integer.parseInt(request.getParameter("id"))%>">
+                            <input type="hidden" name="id" value="${p.getCorteID()}">
+                            <button type="button"><a href="javascript:{}" onclick="document.getElementById('${p.getCorteID()}').submit();">Info</a></buttom>
+                            
+                        </form>
                         </td>
                         <td>
                             
@@ -205,7 +206,7 @@ border:solid #2C3539;
                     </tr>
                 </c:forEach>
                     <td>
-                            <button type="button"><a href="/CRUD_News/Corte/AddNew.html">Add New</button>
+                            <button type="button"><a href="/CRUD_News/Corte/AddNew.jsp?id=<%=Integer.parseInt(request.getParameter("id"))%>">Agregar Corte</button>
                         </td>
             </table>
         </div>

@@ -15,14 +15,14 @@
     </head>
     <body>
         <% 
-            String Nickname = request.getParameter("Nickname");
             java.sql.Date FechaInicio = java.sql.Date.valueOf( request.getParameter("FechaInicio") );
             java.sql.Date FechaFinal = java.sql.Date.valueOf( request.getParameter("FechaFinal") );
             int CorteID = Integer.parseInt(request.getParameter("CorteID"));
+            int rid = Integer.parseInt(request.getParameter("UserID"));
             CorteDataAccess da = new CorteDataAccess();
-            da.corte(CorteID, Nickname, FechaInicio, FechaFinal);
+            da.corte(CorteID, rid, FechaInicio, FechaFinal);
             
-            response.sendRedirect("/CRUD_News/allcorte");
+            response.sendRedirect("/CRUD_News/allcorte?id="+rid+"");
         %>
     </body>
 </html>

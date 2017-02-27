@@ -26,7 +26,7 @@ public class GraficosDataAccess {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from Transaccion").executeQuery();
             while(rs.next()){
-                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getDate(7), rs.getString(8), rs.getDouble(9), rs.getDouble(10));
+                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getDouble(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(8), rs.getDouble(9));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {

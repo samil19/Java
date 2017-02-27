@@ -31,10 +31,11 @@ public class EditPost extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
              {
-        String idact = request.getParameter("id");
+        String idact = request.getParameter("id3");
         int id = Integer.parseInt(idact);
+        int userid= Integer.parseInt(request.getParameter("UserID2"));
         request.setAttribute("getNewsById", TransaccionDataAccess.getNewById(id));
-        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/EditPost.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/EditPost.jsp?id2="+userid+"");
         try {
             rd.forward(request, response);
         } catch (ServletException | IOException ex) {

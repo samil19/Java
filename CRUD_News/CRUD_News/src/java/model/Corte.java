@@ -16,22 +16,24 @@ public class Corte {
     private double CantidadEgresos;
     private double CantidadIngresos;
     private double Corte;
-    private String Nickname;
     private Date FechaInicio;
     private Date FechaFinal;
+    private int UserID;
 
-    public Corte(int CorteID, double CantidadEgresos, double CantidadIngresos, double Corte, String Nickname, Date FechaInicio, Date FechaFinal) {
+    public Corte(int CorteID, double CantidadEgresos, double CantidadIngresos, double Corte, Date FechaInicio, Date FechaFinal, int UserID) {
         this.CorteID = CorteID;
         this.CantidadEgresos = CantidadEgresos;
         this.CantidadIngresos = CantidadIngresos;
         this.Corte = Corte;
-        this.Nickname = Nickname;
         this.FechaInicio = FechaInicio;
         this.FechaFinal = FechaFinal;
+        this.UserID = UserID;
     }
-    
-    
 
+    
+    
+    
+    
     public int getCorteID() {
         return CorteID;
     }
@@ -44,7 +46,7 @@ public class Corte {
         return CantidadEgresos;
     }
 
-    public void setCantidadEgresos(int CantidadEgresos) {
+    public void setCantidadEgresos(double CantidadEgresos) {
         this.CantidadEgresos = CantidadEgresos;
     }
 
@@ -64,14 +66,6 @@ public class Corte {
         this.Corte = Corte;
     }
 
-    public String getNickname() {
-        return Nickname;
-    }
-
-    public void setNickname(String Nickname) {
-        this.Nickname = Nickname;
-    }
-
     public Date getFechaInicio() {
         return FechaInicio;
     }
@@ -87,7 +81,20 @@ public class Corte {
     public void setFechaFinal(Date FechaFinal) {
         this.FechaFinal = FechaFinal;
     }
-    
-    
 
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }

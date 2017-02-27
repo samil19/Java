@@ -16,7 +16,6 @@ public class CorteInfo {
     private int TransaccionID;
     private String TipoTransaccion;
     private String TipoPago;
-    private String Nickname;
     private double Monto;
     private String Comentario;
     private int CorteID;
@@ -25,12 +24,11 @@ public class CorteInfo {
     private double Latitud;
     private double Longitud;
 
-    public CorteInfo(int ID, int TransaccionID, String TipoTransaccion, String TipoPago, String Nickname, double Monto, String Comentario, int CorteID, Date Fecha, String Direccion, double Latitud, double Longitud) {
+    public CorteInfo(int ID, int TransaccionID, String TipoTransaccion, String TipoPago, double Monto, String Comentario, int CorteID, Date Fecha, String Direccion, double Latitud, double Longitud) {
         this.ID = ID;
         this.TransaccionID = TransaccionID;
         this.TipoTransaccion = TipoTransaccion;
         this.TipoPago = TipoPago;
-        this.Nickname = Nickname;
         this.Monto = Monto;
         this.Comentario = Comentario;
         this.CorteID = CorteID;
@@ -40,6 +38,10 @@ public class CorteInfo {
         this.Longitud = Longitud;
     }
 
+    
+    
+    
+    
     public int getID() {
         return ID;
     }
@@ -70,14 +72,6 @@ public class CorteInfo {
 
     public void setTipoPago(String TipoPago) {
         this.TipoPago = TipoPago;
-    }
-
-    public String getNickname() {
-        return Nickname;
-    }
-
-    public void setNickname(String Nickname) {
-        this.Nickname = Nickname;
     }
 
     public double getMonto() {
@@ -135,6 +129,8 @@ public class CorteInfo {
     public void setLongitud(double Longitud) {
         this.Longitud = Longitud;
     }
+
+    
 
     
     

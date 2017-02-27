@@ -33,8 +33,9 @@ public class AllPost extends HttpServlet {
      */
     public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("AllPost", TransaccionDataAccess.getAll());
-        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/AllPost.jsp");
+        int id1=Integer.parseInt(request.getParameter("id2"));
+        request.setAttribute("AllPost", TransaccionDataAccess.getAll(id1));
+        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/AllPost.jsp?id="+ id1+"");
         rd.forward(request, response);
     }
 

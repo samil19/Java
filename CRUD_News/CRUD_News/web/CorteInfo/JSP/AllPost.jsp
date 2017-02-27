@@ -156,11 +156,11 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/index.html">HOME</a></li>
+                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
                     <li><a href="/CRUD_News/index.html#featuresSection">Graficos </a></li>
-                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
-                    <li><a href="/CRUD_News/allcorteinfo">Informacion de los Cortes</a></li>
+                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id2"))%>">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Corte</a></li>
+                    <li><a href="/CRUD_News/allcorteinfo?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Informacion de los Cortes</a></li>
                     <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
                     <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
                   </ul>
@@ -191,7 +191,6 @@ border:solid #2C3539;
                     <td>${p.getTransaccionID()}</td>
                     <td>${p.getTipoTransaccion()}</td>
                     <td>${p.getTipoPago()}</td>
-                    <td>${p.getNickname()}</td>
                     <td>${p.getMonto()}</td>
                     <td>${p.getComentario()}</td>
                     <td>${p.getFecha()}</td>

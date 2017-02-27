@@ -3,6 +3,8 @@
     Created on : Feb 25, 2017, 2:17:37 PM
     Author     : Samil
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +12,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
     
     <title>FireBrand : Home</title>
 
@@ -66,15 +70,19 @@
                  <!-- For Img Logo -->
                   <!--  <a class="navbar-brand logo" href="#"><img src="img/logo.png" alt="logo"></a> -->
                 </div>
+                  <c:forEach items="${Login}" var="p">
+            
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li class="active"><a href="#headerArea">HOME</a></li>
-                    <li><a href="#featuresSection">Graficos </a></li>
-                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
-                    <li><a href="/CRUD_News/allcorteinfo">Informacion de los Cortes</a></li>
+                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
+                    <li><a href="http://localhost:8080/CRUD_News/chart.jsp?id=${p.getUserID()}">Graficos</a></li>
+                    <li><a href="/CRUD_News/allpost?id2=${p.getUserID()}">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte?id=${p.getUserID()}">Corte</a></li>
+                    <li><a href="/CRUD_News/index.html">Log Off</a></li>
                     <li><a href="#priceList">Donaciones</a></li>
                     <li><a href="#clients">Contacto</a></li>
+                  
+                    
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
@@ -84,8 +92,14 @@
       </div>  
     </div>      
   </header>
-  <!-- END HEADER SECTION -->
-     
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h1>Hola ${p.getFirstName()}, bienvenido</h1>
    <!-- START FEATURES PRODUCT AREA -->
     <div class="features_productarea">
       <div class="container">
@@ -94,15 +108,14 @@
           <div class="col-lg-6 col-md-6">
             <div class="featprodcs_img wow fadeInLeft">
               <h1>Corte</h1>
-              <p>Comparacion de los ultimos 14 cortes</p>
-              <img class="img-responsive" src="img/piechart.png" alt="img">
+              <img class="img-responsive" src="img/piechart${p.getUserID()}.png" alt="img">
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="featprodcs_img wow fadeInRight">
             <h1>Ingresos y Egresos</h1>
 
-                  <img class="img-responsive" src="img/barchart.png" alt="img">
+                  <img class="img-responsive" src="img/barchart${p.getUserID()}.png" alt="img">
                 </div>
               </div>
               <a class="download_btn appdown_btn unique" href="http://localhost:8080/CRUD_News/chart.jsp">Generar Grafico</a>
@@ -121,16 +134,6 @@
           <i class="fa fa-chevron-down"></i>
         </a>
       </div>
-      <div class="container">
-        <!-- START FIRST FEATURES PRODUCT -->
-<div class="col-lg-12	 col-md-10">
-            <div class="featprodcs_img wow">
-            <h1>Calculadora de Divisas</h1>
-
-                  <iframe src="./extra/CurrencyConverter.html" scrolling="no" frameborder="0" marginwidth="10" marginheight="0"  height="339" style="background-color: rgb(255, 255, 255), height: 200px;"></iframe>
-                </div>
-              </div>
-              </div>
   <!-- START CLIENTS SECTION -->
   <section id="clients">
     <div class="container">
@@ -176,6 +179,6 @@
 
   <!-- Custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
-
+    </c:forEach>
   </body>
 </html>

@@ -41,11 +41,11 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/index.html">HOME</a></li>
+                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
                     <li><a href="/CRUD_News/index.html#featuresSection">Graficos </a></li>
-                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
-                    <li><a href="/CRUD_News/allcorteinfo">Informacion de los Cortes</a></li>
+                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id2"))%>">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Corte</a></li>
+                    <li><a href="/CRUD_News/allcorteinfo?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Informacion de los Cortes</a></li>
                     <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
                     <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
                   </ul>
@@ -175,7 +175,6 @@ border:solid #2C3539;
                     <th>Numero de Transaccion</th>
                     <th>Tipo de Transaccion</th>
                     <th>Tipo de&nbspPago</th>
-                    <th>Nickname</th>
                     <th>Monto</th>
                     <th>Comentario</th>
                     <th>Fecha</th>
@@ -186,22 +185,33 @@ border:solid #2C3539;
                         <td>${p.getTransaccionID()}</td>
                         <td>${p.getTipoTransaccion()}</td>
                         <td>${p.getTipoPago()}</td>
-                        <td>${p.getNickname()}</td>
                         <td>${p.getMonto()}</td>
                         <td>${p.getComentario()}</td>
                         <td>${p.getFecha()}</td>
                         <td><div style="height:120px; overflow:hidden;">${p.getDireccion()}</div></td>
                         
                         <td>
-                             <button type="button"><a href="edit?id=${p.getTransaccionID()}">Edit</a></button>
+                            <form id="${p.getTransaccionID()}1" action="edit" method="post">
+                                <input type="hidden" name="id3" value="${p.getTransaccionID()}"/>
+                            <input type="hidden" name="UserID2" value="<%=Integer.parseInt(request.getParameter("id2"))%>"/>
+                                <button type="button"><a href="javascript:{}" onclick="document.getElementById('${p.getTransaccionID()}1').submit();">Editar</a></button>
+                               
+                                </form>
                              <br>
-                             <br>
-                             <button type="button"><a href="delete?id=${p.getTransaccionID()}">Delete</a></button>
+                             <form id="${p.getTransaccionID()}2" action="delete" method="post">
+                                 <input type="hidden" name="id" value="${p.getTransaccionID()}"/>
+                            <input type="hidden" name="UserID2" value="<%=Integer.parseInt(request.getParameter("id2"))%>"/>
+                                 <button type="button"><a href="javascript:{}" onclick="document.getElementById('${p.getTransaccionID()}2').submit();">Eliminar</a></button>
+                             </form>
                         </td>
                     </tr>
                 </c:forEach>
-                    <td>
-                            <button type="button"><a href="/CRUD_News/Transaccion/AddNew.html">Add New</button>
+                    <td>    
+                        <form id="addnew" action="Transaccion/AddNew.jsp" method="post">
+                            <input type="hidden" name="UserID" value="<%=Integer.parseInt(request.getParameter("id2"))%>"> 
+                            <button type="button"><a href="javascript:{}" onclick="document.getElementById('addnew').submit();">Agregar Nuevo</a></buttom>
+                            
+                        </form>
                         </td>
             </table>
         </div>
