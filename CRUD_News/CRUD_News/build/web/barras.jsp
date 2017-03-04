@@ -44,7 +44,7 @@ ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjec
 } catch (Exception ex) {
             out.print(ex);
         }
-              String redirectURL = "http://localhost:8080/CRUD_News/index.html#featuresSection";
+              String redirectURL = "/CRUD_News/Login/login.jsp";
     response.sendRedirect(redirectURL);
             %>
 

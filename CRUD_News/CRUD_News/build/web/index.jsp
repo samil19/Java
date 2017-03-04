@@ -74,13 +74,10 @@
             
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
-                    <li><a href="http://localhost:8080/CRUD_News/chart.jsp?id=${p.getUserID()}">Graficos</a></li>
+                    <li><a href="/CRUD_News/chart.jsp?id=${p.getUserID()}">Brief</a></li>
                     <li><a href="/CRUD_News/allpost?id2=${p.getUserID()}">Transacciones</a></li>
                     <li><a href="/CRUD_News/allcorte?id=${p.getUserID()}">Corte</a></li>
                     <li><a href="/CRUD_News/index.html">Log Off</a></li>
-                    <li><a href="#priceList">Donaciones</a></li>
-                    <li><a href="#clients">Contacto</a></li>
                   
                     
                   </ul>
@@ -109,6 +106,7 @@
             <div class="featprodcs_img wow fadeInLeft">
               <h1>Corte</h1>
               <img class="img-responsive" src="img/piechart${p.getUserID()}.png" alt="img">
+          
             </div>
           </div>
           <div class="col-lg-6 col-md-6">

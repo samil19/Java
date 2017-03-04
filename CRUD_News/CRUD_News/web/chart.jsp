@@ -27,12 +27,11 @@
             int rid = Integer.parseInt(request.getParameter("id"));
               try {
                   
-                  String ID;
+                  String ID=null;
         DefaultPieDataset data= new DefaultPieDataset();
         String sqle ="SELECT * FROM Corte where UserID = '"+rid+"'";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Corte n= new Corte(rs.getInt(1), rs.getInt(2), rs.getDouble(3), rs.getDouble(4), rs.getDate(5), rs.getDate(6), rs.getInt(7));
                 ID=Integer.toString(rs.getInt(1));
                 data.setValue(ID,rs.getDouble(4));
             }

@@ -1,10 +1,3 @@
-<%-- 
-    Document   : AllPost
-    Created on : Aug 8, 2015, 10:44:55 PM
-    Author     : Thang
---%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -155,11 +148,10 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
-                    <li><a href="/CRUD_News/index.html#featuresSection">Graficos </a></li>
+                    <li><a href="/CRUD_News/chart.jsp?id=<%=Integer.parseInt(request.getParameter("id"))%>">Brief</a></li>
                     <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id"))%>">Transacciones</a></li>
                     <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id"))%>">Corte</a></li>
-                    </ul>
+                  </ul>
                 </div><!--/.nav-collapse -->
               </div>
             </div>

@@ -236,13 +236,9 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/Login/login.jsp">Briefting</a></li>
-                    <li><a href="/CRUD_News/index.html#featuresSection">Graficos </a></li>
+                    <li><a href="/CRUD_News/chart.jsp?id=<%=Integer.parseInt(request.getParameter("id"))%>">Brief</a></li>
                     <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id"))%>">Transacciones</a></li>
                     <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id"))%>">Corte</a></li>
-                    <li><a href="/CRUD_News/allcorteinfo?id=<%=Integer.parseInt(request.getParameter("id"))%>">Informacion de los Cortes</a></li>
-                    <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
-                    <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
@@ -268,7 +264,6 @@ border:solid #2C3539;
 <div class="form-style-5">
         <div style="width: 900px; margin-left: auto; margin-right: auto">
             <form action="JSP/ManagerCorte.jsp" method="post">
-                <h1><%=Integer.parseInt(request.getParameter("id"))%></h1>
                 
                 <input type="hidden" name="UserID" value="<%=Integer.parseInt(request.getParameter("id"))%>" >
                 Fecha Desde<br>
