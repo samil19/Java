@@ -5,6 +5,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,15 +71,15 @@
                  <!-- For Img Logo -->
                   <!--  <a class="navbar-brand logo" href="#"><img src="img/logo.png" alt="logo"></a> -->
                 </div>
-                  <c:forEach items="${Login}" var="p">
             
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/chart.jsp?id=${p.getUserID()}">Brief</a></li>
-                    <li><a href="/CRUD_News/allpost?id2=${p.getUserID()}">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte?id=${p.getUserID()}">Corte</a></li>
-                    <li><a href="/CRUD_News/index.html">Log Off</a></li>
-                  
+                    <li><a href="/CRUD_News/chart.jsp">Muro de Resumen</a></li>
+                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>***
+                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
+                    <li><a href="#priceList">Donaciones</a></li>
+                    <li><a href="#clients">Contacto</a></li>
+                    <li><a href="/CRUD_News/close">Desconectarse</a></li>
                     
                   </ul>
                 </div><!--/.nav-collapse -->
@@ -96,7 +97,7 @@
                     <br>
                     <br>
                     <br>
-                    <h1>Hola ${p.getFirstName()}, bienvenido</h1>
+                    <h1>Hola ${sessionScope.user}, bienvenido</h1>
    <!-- START FEATURES PRODUCT AREA -->
     <div class="features_productarea">
       <div class="container">
@@ -105,19 +106,16 @@
           <div class="col-lg-6 col-md-6">
             <div class="featprodcs_img wow fadeInLeft">
               <h1>Corte</h1>
-              <img class="img-responsive" src="img/piechart${p.getUserID()}.png" alt="img">
-          
+              <img class="img-responsive" src="img/piechart${sessionScope.ID}.png" alt="img">
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="featprodcs_img wow fadeInRight">
             <h1>Ingresos y Egresos</h1>
 
-                  <img class="img-responsive" src="img/barchart${p.getUserID()}.png" alt="img">
+                  <img class="img-responsive" src="img/barchart${sessionScope.ID}.png" alt="img">
                 </div>
               </div>
-              <a class="download_btn appdown_btn unique" href="http://localhost:8080/CRUD_News/chart.jsp">Generar Grafico</a>
-              
             </div>
           </div>
         </div>
@@ -177,6 +175,5 @@
 
   <!-- Custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
-    </c:forEach>
   </body>
 </html>

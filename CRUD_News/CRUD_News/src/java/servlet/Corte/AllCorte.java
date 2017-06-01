@@ -31,9 +31,8 @@ public class AllCorte extends HttpServlet {
      */
     public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id= Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("AllPost", CorteDataAccess.getAll(id));
-        RequestDispatcher rd = request.getRequestDispatcher("Corte/AllPost.jsp?id="+id+"");
+        request.setAttribute("AllPost", CorteDataAccess.getAll(Integer.parseInt((String) request.getSession(false).getAttribute("ID"))));
+        RequestDispatcher rd = request.getRequestDispatcher("Corte/AllPost.jsp");
         rd.forward(request, response);
     }
 

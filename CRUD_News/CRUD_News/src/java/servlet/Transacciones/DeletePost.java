@@ -31,12 +31,9 @@ public class DeletePost extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idTemp = request.getParameter("id");
-        int id = Integer.parseInt(idTemp);
-        int userid = Integer.parseInt(request.getParameter("UserID2"));
         TransaccionDataAccess da = new TransaccionDataAccess();
-        da.delete(id);
-        response.sendRedirect("/CRUD_News/allpost?id2="+userid+"");
+        da.delete(Integer.parseInt(request.getParameter("id")));
+        response.sendRedirect("/CRUD_News/allpost");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

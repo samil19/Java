@@ -10,11 +10,10 @@ import dao.TransaccionDataAccess;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Transaccion;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,9 +32,8 @@ public class AllPost extends HttpServlet {
      */
     public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id1=Integer.parseInt(request.getParameter("id2"));
-        request.setAttribute("AllPost", TransaccionDataAccess.getAll(id1));
-        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/AllPost.jsp?id="+ id1+"");
+        request.setAttribute("AllPost", TransaccionDataAccess.getAll(Integer.parseInt((String)request.getSession(false).getAttribute("ID"))));
+        RequestDispatcher rd = request.getRequestDispatcher("/Transaccion/AllPost.jsp?");
         rd.forward(request, response);
     }
 

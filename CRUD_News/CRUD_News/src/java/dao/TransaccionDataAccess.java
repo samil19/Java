@@ -34,8 +34,7 @@ public class TransaccionDataAccess {
             ps.setDouble(7, n.getLatitud());
             ps.setDouble(8, n.getLongitud());
             ps.setInt(9, id);
-            ps.executeQuery();
-//            addNew2(n);
+            ps.executeUpdate();
             
             
         } catch (ClassNotFoundException | SQLException ex) {
@@ -43,24 +42,7 @@ public class TransaccionDataAccess {
         }
     }
     
-//    public void addNew2(Transaccion z) {
-//        try{
-//            
-//        PreparedStatement in = DBUtils.getPreparedStatement("insert into CorteInfo values( ?, ?, ?, ?, ?, ?, ?, ?)");
-//            in.setInt(1, 0);
-//            in.setString(2, z.getTipoTransaccion());
-//            in.setString(3, z.getTipoPago());
-//            in.setString(4, z.getNickname());
-//            in.setInt(5, z.getMonto());
-//            in.setString(6, z.getComentario());
-//            in.setInt(7, 0);
-//            in.setDate(8, z.getFecha());
-//            in.executeUpdate();
-//            
-//            } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+
     
     public static List<Transaccion> getAll(int id){
         List<Transaccion> ls = new LinkedList<>();
@@ -97,6 +79,7 @@ public class TransaccionDataAccess {
     public void edit(int TransaccionID, String TipoTransaccion, String TipoPago, double Monto, String Comentario, Date Fecha, String Direccion, double Latitud, double Longitud, int id){
         try {
             String sql = "update Transaccion SET TipoTransaccion = ?, TipoPago = ?, Monto = ?, Comentario = ?, Fecha = ?, Direccion = ?, Latitud = ?, Longitud = ?, USerID = ?" + " where TransaccionID = "+ TransaccionID;
+            String sql1 = "update CorteInfo  SET TipoTransaccion = ?, TipoPago = ?, Monto = ?, Comentario = ?, Fecha = ?, Direccion = ?, Latitud = ?, Longitud = ?, USerID = ?" + " where TransaccionID = "+ TransaccionID;
             PreparedStatement ps= DBUtils.getPreparedStatement(sql);
             ps.setString(1, TipoTransaccion);
             ps.setString(2, TipoPago);
@@ -108,6 +91,17 @@ public class TransaccionDataAccess {
             ps.setDouble(8, Longitud);
             ps.setInt(9, id);
             ps.executeUpdate();
+            PreparedStatement ps1= DBUtils.getPreparedStatement(sql1);
+            ps1.setString(1, TipoTransaccion);
+            ps1.setString(2, TipoPago);
+            ps1.setDouble(3, Monto);
+            ps1.setString(4, Comentario);
+            ps1.setDate(5, Fecha);
+            ps1.setString(6, Direccion);
+            ps1.setDouble(7, Latitud);
+            ps1.setDouble(8, Longitud);
+            ps1.setInt(9, id);
+            ps1.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -142,4 +136,5 @@ public class TransaccionDataAccess {
             Logger.getLogger(TransaccionDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 }

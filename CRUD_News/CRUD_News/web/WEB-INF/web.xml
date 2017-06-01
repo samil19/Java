@@ -21,16 +21,12 @@
         <servlet-class>servlet.Corte.AllCorte</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AllCorteInfo</servlet-name>
-        <servlet-class>servlet.CorteInfo.AllCorteInfo</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AllCorteInfoID</servlet-name>
         <servlet-class>servlet.CorteInfo.AllCorteInfoID</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>fileservlet</servlet-name>
-        <servlet-class>servlet.File.FileServlet</servlet-class>
+        <servlet-name>Close</servlet-name>
+        <servlet-class>servlet.Login.Close</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -53,16 +49,12 @@
         <url-pattern>/allcorte</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AllCorteInfo</servlet-name>
-        <url-pattern>/allcorteinfo</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AllCorteInfoID</servlet-name>
         <url-pattern>/AllCorteInfoID</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>fileservlet</servlet-name>
-        <url-pattern>/files/</url-pattern>
+        <servlet-name>Close</servlet-name>
+        <url-pattern>/close</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

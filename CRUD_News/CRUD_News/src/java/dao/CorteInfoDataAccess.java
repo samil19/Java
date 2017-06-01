@@ -19,23 +19,6 @@ import model.CorteInfo;
  * @author Samil
  */
 public class CorteInfoDataAccess {
-    public static List<CorteInfo> getAll(){
-        List<CorteInfo> ls = new LinkedList<>();
-        
-        try {
-            ResultSet rs = DBUtils.getPreparedStatement("select * from CorteInfo").executeQuery();
-            while(rs.next()){
-                CorteInfo n= new CorteInfo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),rs.getString(6),rs.getInt(7), rs.getDate(8), rs.getString(9), rs.getDouble(10), rs.getDouble(11));
-                ls.add(n);
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(CorteInfoDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        return ls;
-    }
-    
     public static List<CorteInfo> getAllID(int ih){
         List<CorteInfo> ls = new LinkedList<>();
         String sql = "select * from CorteInfo where CorteID = "+ih+"";

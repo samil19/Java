@@ -31,11 +31,8 @@ public class AllCorteInfoID extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idact = request.getParameter("id");
-        int id = Integer.parseInt(idact);
-        int userid = Integer.parseInt(request.getParameter("UserID"));
-        request.setAttribute("AllPost", CorteInfoDataAccess.getAllID(id));
-        RequestDispatcher rd = request.getRequestDispatcher("/CorteInfo/JSP/AllPost.jsp?id2="+userid+"");
+        request.setAttribute("AllPost", CorteInfoDataAccess.getAllID(Integer.parseInt(request.getParameter("id"))));
+        RequestDispatcher rd = request.getRequestDispatcher("/CorteInfo/JSP/AllPost.jsp");
         rd.forward(request, response);
     }
 

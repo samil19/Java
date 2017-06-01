@@ -24,7 +24,7 @@
 
         
         <%              
-            int rid = Integer.parseInt(request.getParameter("id"));
+            int rid = Integer.parseInt((String) request.getSession(false).getAttribute("ID"));
               try {
                   
                   String ID=null;
@@ -43,7 +43,7 @@ ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjec
 } catch (Exception ex) {
             out.print(ex);
         }
-              String redirectURL = "http://localhost:8080/CRUD_News/barras.jsp?id="+rid+"";
+              String redirectURL = "/CRUD_News/barras.jsp";
     response.sendRedirect(redirectURL);
             %>
 

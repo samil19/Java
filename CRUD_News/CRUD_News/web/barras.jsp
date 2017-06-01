@@ -25,14 +25,13 @@
 
         
         <%           
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt((String) request.getSession(false).getAttribute("ID"));
               try {
                   String ID;
         DefaultCategoryDataset data= new DefaultCategoryDataset();
         String sqle ="SELECT * FROM Transaccion where UserID = '"+id+"'";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Transaccion n= new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getDouble(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(8), rs.getDouble(9));
                 ID=Integer.toString(rs.getInt(1));
                 data.setValue(rs.getDouble(4), rs.getString(2), rs.getString(2)+"= "+rs.getDouble(4));
             }
@@ -44,7 +43,7 @@ ChartUtilities.saveChartAsJPEG(new File("C:/Users/Samil/Documents/NetBeansProjec
 } catch (Exception ex) {
             out.print(ex);
         }
-              String redirectURL = "/CRUD_News/Login/login.jsp";
+              String redirectURL = "/CRUD_News/index.jsp";
     response.sendRedirect(redirectURL);
             %>
 

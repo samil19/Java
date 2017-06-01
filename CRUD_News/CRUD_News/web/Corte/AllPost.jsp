@@ -1,5 +1,13 @@
+<%-- 
+    Document   : AllPost
+    Created on : Aug 8, 2015, 10:44:55 PM
+    Author     : Thang
+--%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -148,10 +156,13 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/chart.jsp?id=<%=Integer.parseInt(request.getParameter("id"))%>">Brief</a></li>
-                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id"))%>">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id"))%>">Corte</a></li>
-                  </ul>
+                    <li><a href="/CRUD_News/chart.jsp">Muro de Resumen</a></li>
+                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
+                    <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
+                    <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
+                    <li><a href="/CRUD_News/close">Desconectarse</a></li>
+                    </ul>
                 </div><!--/.nav-collapse -->
               </div>
             </div>
@@ -185,7 +196,6 @@ border:solid #2C3539;
                         <td>${p.getFechaFinal()}</td>
                         <td>
                             <form id="${p.getCorteID()}" action="AllCorteInfoID" method="post">
-                            <input type="hidden" name="UserID" value="<%=Integer.parseInt(request.getParameter("id"))%>">
                             <input type="hidden" name="id" value="${p.getCorteID()}">
                             <button type="button"><a href="javascript:{}" onclick="document.getElementById('${p.getCorteID()}').submit();">Info</a></buttom>
                             
@@ -198,7 +208,7 @@ border:solid #2C3539;
                     </tr>
                 </c:forEach>
                     <td>
-                            <button type="button"><a href="/CRUD_News/Corte/AddNew.jsp?id=<%=Integer.parseInt(request.getParameter("id"))%>">Agregar Corte</button>
+                            <button type="button"><a href="/CRUD_News/Corte/AddNew.jsp">Agregar Corte</button>
                         </td>
             </table>
         </div>

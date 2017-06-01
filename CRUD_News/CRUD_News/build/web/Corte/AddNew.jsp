@@ -7,6 +7,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
+
 <!DOCTYPE html>
 <html>
     
@@ -236,9 +238,12 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/chart.jsp?id=<%=Integer.parseInt(request.getParameter("id"))%>">Brief</a></li>
-                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id"))%>">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id"))%>">Corte</a></li>
+                    <li><a href="/CRUD_News/chart.jsp">Muro de Resumen</a></li>
+                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
+                    <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
+                    <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
+                    <li><a href="/CRUD_News/close">Desconectarse</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
@@ -265,7 +270,6 @@ border:solid #2C3539;
         <div style="width: 900px; margin-left: auto; margin-right: auto">
             <form action="JSP/ManagerCorte.jsp" method="post">
                 
-                <input type="hidden" name="UserID" value="<%=Integer.parseInt(request.getParameter("id"))%>" >
                 Fecha Desde<br>
                 <input type="Date" name="FechaInicio" style="width: 200px" required></br>
                 Fecha Hasta<br>

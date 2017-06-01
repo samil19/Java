@@ -156,9 +156,12 @@ border:solid #2C3539;
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/chart.jsp?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Brief</a></li>
-                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id2"))%>">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Corte</a></li>
+                    <li><a href="/CRUD_News/chart.jsp">Muro de Resumen</a></li>
+                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
+                    <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
+                    <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
+                    <li><a href="/CRUD_News/close">Desconectarse</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>

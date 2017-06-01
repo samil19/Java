@@ -6,7 +6,6 @@
 package dao;
 
 import db.DBUtils;
-import dao.TransaccionDataAccess;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +15,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Corte;
-import model.Transaccion;
 
 /**
  *
@@ -50,7 +48,6 @@ public class CorteDataAccess {
              String sqle = "select * from Transaccion where TipoTransaccion = 'Egreso' AND UserID = '" +id+"' AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             ResultSet rs = DBUtils.getPreparedStatement(sqle).executeQuery();
             while(rs.next()){
-                Transaccion q = new Transaccion(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getDouble(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getDouble(8), rs.getDouble(9));
                 egresos -= rs.getDouble(4);
                 da.delete2(rs.getInt(1));
             }
@@ -59,7 +56,6 @@ public class CorteDataAccess {
             String sqli = "select * from Transaccion where TipoTransaccion = 'Ingreso' AND UserID = '" +id+"' AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             ResultSet ri = DBUtils.getPreparedStatement(sqli).executeQuery();
             while(ri.next()){
-                Transaccion r = new Transaccion(ri.getInt(1), ri.getString(2), ri.getString(3),ri.getDouble(4), ri.getString(5), ri.getDate(6), ri.getString(7), ri.getDouble(8), ri.getDouble(9));
                 ingresos += ri.getDouble(4);
                 da.delete2(ri.getInt(1));
             }
@@ -87,8 +83,7 @@ public class CorteDataAccess {
         try {
             ResultSet rt = DBUtils.getPreparedStatement("select * from Corte where CantidadEgresos = "+eg+" AND CantidadIngresos = "+in+" AND Corte = "+corte+" AND UserID = '"+id+"'").executeQuery();
             while(rt.next()){
-            Corte n= new Corte(rt.getInt(1), rt.getDouble(2), rt.getDouble(3), rt.getDouble(4), rt.getDate(5), rt.getDate(6), rt.getInt(7));
-                ID1+=rt.getInt(1);
+               ID1+=rt.getInt(1);
             }
             String sqlo = "update CorteInfo SET CorteID= ? " + "where CorteID = 0 AND Fecha BETWEEN '"+FechaInicio+"' AND '"+FechaFinal+"'";
             PreparedStatement pz= DBUtils.getPreparedStatement(sqlo);

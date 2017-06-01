@@ -3,6 +3,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
 
 <!DOCTYPE html>
 <html>
@@ -41,9 +42,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right custom_nav mobnav" >
-                    <li><a href="/CRUD_News/chart.jsp?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Brief</a></li>
-                    <li><a href="/CRUD_News/allpost?id2=<%=Integer.parseInt(request.getParameter("id2"))%>">Transacciones</a></li>
-                    <li><a href="/CRUD_News/allcorte?id=<%=Integer.parseInt(request.getParameter("id2"))%>">Corte</a></li>
+                    <li><a href="/CRUD_News/chart.jsp">Muro de Resumen</a></li>
+                    <li><a href="/CRUD_News/allpost">Transacciones</a></li>
+                    <li><a href="/CRUD_News/allcorte">Corte</a></li>
+                    <li><a href="/CRUD_News/index.html#priceList">Donaciones</a></li>
+                    <li><a href="/CRUD_News/index.html#clients">Contacto</a></li>
+                    <li><a href="/CRUD_News/close">Desconectarse</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
@@ -189,14 +193,14 @@ border:solid #2C3539;
                         <td>
                             <form id="${p.getTransaccionID()}1" action="edit" method="post">
                                 <input type="hidden" name="id3" value="${p.getTransaccionID()}"/>
-                            <input type="hidden" name="UserID2" value="<%=Integer.parseInt(request.getParameter("id2"))%>"/>
+                            <input type="hidden" name="UserID2" value="${sessionScope.ID}"/>
                                 <button type="button"><a href="javascript:{}" onclick="document.getElementById('${p.getTransaccionID()}1').submit();">Editar</a></button>
                                
                                 </form>
                              <br>
                              <form id="${p.getTransaccionID()}2" action="delete" method="post">
                                  <input type="hidden" name="id" value="${p.getTransaccionID()}"/>
-                            <input type="hidden" name="UserID2" value="<%=Integer.parseInt(request.getParameter("id2"))%>"/>
+                            <input type="hidden" name="UserID2" value="${sessionScope.ID}"/>
                                  <button type="button"><a href="javascript:{}" onclick="document.getElementById('${p.getTransaccionID()}2').submit();">Eliminar</a></button>
                              </form>
                         </td>
@@ -204,7 +208,7 @@ border:solid #2C3539;
                 </c:forEach>
                     <td>    
                         <form id="addnew" action="Transaccion/AddNew.jsp" method="post">
-                            <input type="hidden" name="UserID" value="<%=Integer.parseInt(request.getParameter("id2"))%>"> 
+                            <input type="hidden" name="UserID" value="${sessionScope.ID}"> 
                             <button type="button"><a href="javascript:{}" onclick="document.getElementById('addnew').submit();">Agregar Nuevo</a></buttom>
                             
                         </form>

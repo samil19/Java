@@ -16,6 +16,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -58,22 +59,23 @@ public class LoginDataAccess {
     
     public static List loguear(String LoginName,String Password) throws UnsupportedEncodingException{
         List<Register> ls = new LinkedList<>();
+        ArrayList<String> list = new ArrayList<>();
         String basepassword = null;
         String Passwordhash =null;
         String salt=null;
-        int id = 0;
         String Nombre = null;
         try {
             String sql ="SELECT * FROM [dbo].[User] WHERE LoginName = '"+ LoginName+"'" ;
             
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next()){
-                id=rs.getInt(1);
                 basepassword = rs.getString(3);
                 Nombre=rs.getString(2);
             salt=rs.getString(7);   
             Register n = new Register (rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
             ls.add(n);
+            list.add(String.valueOf(rs.getInt(1)));
+            list.add(rs.getString(4));
             }
             Passwordhash=get_SHA_512_SecurePassword(Password,salt);
             
@@ -83,7 +85,7 @@ public class LoginDataAccess {
         if(LoginName.equals(Nombre)){
             if(Passwordhash.equals(basepassword)){
                 
-              return  ls;
+              return  list;
             }
             else{
                 
